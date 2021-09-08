@@ -12,6 +12,9 @@ then
     echo "Progress 4%"
     cp  ~/backup.sh /media/fots/backupfiles/dotfiles/
     echo "Progress 5%"
+    git -C "/media/fots/backupfiles/dotfiles" commit --all
+    git -C "/media/fots/backupfiles/dotfiles" push origin master
+    echo "Progress 7%"
     cp -rT ~/Videos /media/fots/backupfiles/Videos
     echo "Progress 10%"
     cp -rT ~/Pictures /media/fots/backupfiles/Pictures
