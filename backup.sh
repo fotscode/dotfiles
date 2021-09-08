@@ -14,9 +14,9 @@ then
     echo "Progress 4%"
     cp  ~/backup.sh /media/fots/backupfiles/dotfiles/
     echo "Progress 5%"
-    git -C "/media/fots/backupfiles/dotfiles/" add --all
-    git -C "/media/fots/backupfiles/dotfiles/" commit -m "$MSG"
-    git -C "/media/fots/backupfiles/dotfiles/" push origin master > /tmp/backupsh.log
+    git -C "/media/fots/backupfiles/dotfiles/" add --all  > /dev/null 2>&1
+    git -C "/media/fots/backupfiles/dotfiles/" commit -m "$MSG" > /dev/null 2>&1
+    git -C "/media/fots/backupfiles/dotfiles/" push origin master > /dev/null 2>&1
     echo "Progress 15%"
     cp -rT ~/Videos /media/fots/backupfiles/Videos
     echo "Progress 20%"
