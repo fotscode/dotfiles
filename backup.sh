@@ -1,5 +1,7 @@
 if [[ -d /media/fots/backupfiles ]]
 then
+    MSG="`date +"%d %m %Y"`"
+    [ -z "$1" ] && MSG=$1
     echo "last backup: `date +"%d-%m-%Y %H:%M"`" > /media/fots/backupfiles/backup.log
     echo "Progress 0%"
     cp  ~/.bashrc /media/fots/backupfiles/dotfiles/
@@ -12,8 +14,9 @@ then
     echo "Progress 4%"
     cp  ~/backup.sh /media/fots/backupfiles/dotfiles/
     echo "Progress 5%"
-    git -C "/media/fots/backupfiles/dotfiles" commit --all
-    git -C "/media/fots/backupfiles/dotfiles" push origin master
+    git -C "/media/fots/backupfiles/dotfiles" add --all
+    git -C "/media/fots/backupfiles/dotfiles/" commit -m $MSG
+    git -C "/media/fots/backupfiles/dotfiles/" push origin master
     echo "Progress 7%"
     cp -rT ~/Videos /media/fots/backupfiles/Videos
     echo "Progress 10%"
