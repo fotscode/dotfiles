@@ -2,6 +2,7 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -123,3 +124,9 @@ fots
 # alias for zaread
 alias zaread="~/Public/zaread/zaread.sh"
 
+alias start="xdg-open"
+
+JAVA_HOME="/usr/lib/jvm/jdk-16.0.2"
+export JAVA_HOME
+
+export PATH=/home/fots/Templates/apache-maven-3.8.2/bin:$PATH
