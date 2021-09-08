@@ -15,7 +15,7 @@ then
     cp  ~/backup.sh /media/fots/backupfiles/dotfiles/
     echo "Progress 5%"
     git -C "/media/fots/backupfiles/dotfiles" add --all
-    git -C "/media/fots/backupfiles/dotfiles/" commit -m $MSG
+    git -C "/media/fots/backupfiles/dotfiles/" commit -m "$MSG"
     git -C "/media/fots/backupfiles/dotfiles/" push origin master
     echo "Progress 7%"
     cp -rT ~/Videos /media/fots/backupfiles/Videos
