@@ -24,7 +24,8 @@ then
     echo "Progress 25%"
     cp -rT ~/Documents /media/fots/backupfiles/Documents
     echo "Progress 30%"
-    cp -rfT ~/facultad /media/fots/backupfiles/facultad
+    find . -size +512M -printf "%f\n" > /tmp/exclude.txt
+    rsync -av ~/facultad /media/fots/backupfiles/facultad --exclude-from=/tmp/exclude.txt
     echo "Progress 100%"
 fi
 
