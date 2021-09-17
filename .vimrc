@@ -46,6 +46,11 @@ Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'honza/vim-snippets'
 
+"UML
+Plug 'aklt/plantuml-syntax'
+Plug 'weirongxu/plantuml-previewer.vim'
+Plug 'tyru/open-browser.vim'
+
 call plug#end()
 
 execute pathogen#infect()
@@ -69,8 +74,7 @@ nmap <Leader>nt :NERDTreeFind<CR>
 "format all
 nmap <Leader>fe gg=G<CR> 
 
-"pascal and latex compiler
-nnoremap <Leader>fpc :!fpc %<CR>
+"latex compiler
 nnoremap <Leader>pdf :!pdflatex %<CR><CR>
 
 tnoremap <Esc> <C-\><C-n>
@@ -81,6 +85,9 @@ nmap <Leader>it i\textit{}<Esc>i
 nmap <Leader>tt i\texttt{}<Esc>i
 nmap <Leader>sp i\vspace{}<Esc>i
 
+"plantuml compiler
+nnoremap <Leader>uml :PlantumlSave %:r.png<CR>:PlantumlOpen<CR>
+
 " Deactivating arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -90,6 +97,9 @@ noremap <Right> <Nop>
 " EMMET SHORTCUTS
 let g:user_emmet_mode='n'
 let g:user_emmet_leader_key=','
+
+"
+
 
 " tab autocompletion
 function! InsertTabWrapper()
