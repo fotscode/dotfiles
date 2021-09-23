@@ -119,7 +119,6 @@ fi
 
 # prints date, ram usage and uptime
 alias fots="~/.scripts/echo_info.sh"
-fots
 
 # alias for zaread
 alias zaread="~/Public/zaread/zaread.sh"
