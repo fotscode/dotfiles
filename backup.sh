@@ -1,3 +1,4 @@
+#!/bin/bash
 if [[ -d /media/fots/backupfiles ]]
 then
     MSG="`date +"%d %m %Y %H:%M"`"

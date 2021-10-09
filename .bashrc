@@ -129,3 +129,7 @@ JAVA_HOME="/usr/lib/jvm/jdk-16.0.2"
 export JAVA_HOME
 
 export PATH=/home/fots/Templates/apache-maven-3.8.2/bin:$PATH
+
+alias py="python3.9"
+
+alias img="vimiv"

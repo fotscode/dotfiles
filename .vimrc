@@ -11,6 +11,7 @@ set sw=2
 set laststatus=2
 set linebreak
 set expandtab
+set cul
 filetype plugin indent on
 
 "spanish lang
@@ -45,6 +46,10 @@ Plug 'pangloss/vim-javascript'
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'honza/vim-snippets'
+Plug 'junegunn/goyo.vim' " good looking
+Plug 'itspriddle/vim-shellcheck' " spellcheck
+Plug 'xolox/vim-misc' " for switch
+Plug 'xolox/vim-colorscheme-switcher' " switch colorscheme
 
 "UML
 Plug 'aklt/plantuml-syntax'
@@ -71,6 +76,10 @@ let mapleader = " "
 nmap <Leader>s <Plug>(easymotion-s2)
 nmap <Leader>nt :NERDTreeFind<CR>
 
+"goyo
+nmap <Leader>go :Goyo<CR><F8><CR>:echon ''<CR>
+nmap <Leader>gr :Goyo 300x300<CR>:echon ''<CR>
+
 "format all
 nmap <Leader>fe gg=G<CR> 
 
@@ -88,6 +97,12 @@ nmap <Leader>sp i\vspace{}<Esc>i
 "plantuml compiler
 nnoremap <Leader>uml :PlantumlSave %:r.png<CR>:PlantumlOpen<CR>
 
+"firefox exec
+nnoremap <Leader>gl :exec '!firefox '.getline('.')<CR><CR>
+
+"clear vim command line
+nnoremap <C-l> :echon ''<CR>
+
 " Deactivating arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>
@@ -98,8 +113,8 @@ noremap <Right> <Nop>
 let g:user_emmet_mode='n'
 let g:user_emmet_leader_key=','
 
-"
-
+" exclude colorschemes
+let g:colorscheme_switcher_exclude = ['default', 'test', 'blue', 'darkblue', 'delek', 'desert', 'elflord', 'evening', 'industry', 'koehler', 'morning', 'murphy', 'pablo', 'peachpuff', 'ron', 'shine', 'slate', 'torte', 'zellner']
 
 " tab autocompletion
 function! InsertTabWrapper()
