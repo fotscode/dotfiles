@@ -50,6 +50,7 @@ Plug 'junegunn/goyo.vim' " good looking
 Plug 'itspriddle/vim-shellcheck' " spellcheck
 Plug 'xolox/vim-misc' " for switch
 Plug 'xolox/vim-colorscheme-switcher' " switch colorscheme
+Plug 'chrisbra/csv.vim' " csv viewer
 
 "UML
 Plug 'aklt/plantuml-syntax'
@@ -79,6 +80,9 @@ nmap <Leader>nt :NERDTreeFind<CR>
 "goyo
 nmap <Leader>go :Goyo<CR><F8><CR>:echon ''<CR>
 nmap <Leader>gr :Goyo 300x300<CR>:echon ''<CR>
+
+"csv view
+nmap <Leader>csv :CSVTabularize<CR>
 
 "format all
 nmap <Leader>fe gg=G<CR> 
