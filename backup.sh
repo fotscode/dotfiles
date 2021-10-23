@@ -15,6 +15,14 @@ then
     echo "Progress 4%"
     cp  ~/backup.sh /mnt/backupfiles/dotfiles/
     echo "Progress 5%"
+    cp  ~/.zshrc /mnt/backupfiles/dotfiles/
+    echo "Progress 6%"
+    cp  ~/.config/i3/config /mnt/backupfiles/dotfiles/
+    echo "Progress 7%"
+    cp  ~/.config/i3status/config /mnt/backupfiles/dotfiles/
+    echo "Progress 8%"
+    cp  ~/.oh-my-zsh/themes/fots.zsh-theme /mnt/backupfiles/dotfiles/
+    echo "Progress 9%"
     git -C "/mnt/backupfiles/dotfiles/" add --all  > /dev/null 2>&1
     git -C "/mnt/backupfiles/dotfiles/" commit -m "$MSG" > /dev/null 2>&1
     git -C "/mnt/backupfiles/dotfiles/" push origin master > /dev/null 2>&1
