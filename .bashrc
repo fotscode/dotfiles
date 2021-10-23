@@ -132,4 +132,5 @@ export PATH=/home/fots/Templates/apache-maven-3.8.2/bin:$PATH
 
 alias py="python3.9"
 
-alias img="vimiv"
+alias i="vimiv"
+alias z="zathura"
