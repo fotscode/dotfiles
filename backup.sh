@@ -17,9 +17,9 @@ then
     echo "Progress 5%"
     cp  ~/.zshrc /mnt/backupfiles/dotfiles/
     echo "Progress 6%"
-    cp  ~/.config/i3/config /mnt/backupfiles/dotfiles/
+    cp  ~/.config/i3/config /mnt/backupfiles/dotfiles/config
     echo "Progress 7%"
-    cp  ~/.config/i3status/config /mnt/backupfiles/dotfiles/
+    cp  ~/.config/i3status/config /mnt/backupfiles/dotfiles/statusconfig
     echo "Progress 8%"
     cp  ~/.oh-my-zsh/themes/fots.zsh-theme /mnt/backupfiles/dotfiles/
     echo "Progress 9%"
