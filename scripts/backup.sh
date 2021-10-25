@@ -5,25 +5,25 @@ then
     [ -z "$1" ] || MSG=$1
     echo "last backup: `date +"%d-%m-%Y %H:%M"`" > /mnt/backupfiles/backup.log
     echo "Progress 0%"
-    cp  ~/.bashrc /mnt/backupfiles/dotfiles/
+    cp  ~/.bashrc /mnt/backupfiles/dotfiles/shell
     echo "Progress 1%"
-    cp  ~/.vimrc /mnt/backupfiles/dotfiles/
+    cp  ~/.vimrc /mnt/backupfiles/dotfiles/vim
     echo "Progress 2%"
-    cp  ~/.scripts/echo_info.sh /mnt/backupfiles/dotfiles/
+    cp  ~/.scripts/echo_info.sh /mnt/backupfiles/dotfiles/scripts
     echo "Progress 3%"
-    cp  ~/.scripts/colors.sh /mnt/backupfiles/dotfiles/
+    cp  ~/.scripts/colors.sh /mnt/backupfiles/dotfiles/scripts
     echo "Progress 4%"
-    cp  ~/backup.sh /mnt/backupfiles/dotfiles/
+    cp  ~/backup.sh /mnt/backupfiles/dotfiles/scripts
     echo "Progress 5%"
-    cp  ~/.zshrc /mnt/backupfiles/dotfiles/
+    cp  ~/.zshrc /mnt/backupfiles/dotfiles/shell
     echo "Progress 6%"
-    cp  ~/.config/i3/config /mnt/backupfiles/dotfiles/config
+    cp  ~/.config/i3/config /mnt/backupfiles/dotfiles/i3/config
     echo "Progress 7%"
-    cp  ~/.config/i3status/config /mnt/backupfiles/dotfiles/statusconfig
+    cp  ~/.config/i3status/config /mnt/backupfiles/dotfiles/i3/statusconfig
     echo "Progress 8%"
-    cp  ~/.oh-my-zsh/themes/fots.zsh-theme /mnt/backupfiles/dotfiles/
+    cp  ~/.oh-my-zsh/themes/fots.zsh-theme /mnt/backupfiles/zsh/dotfiles/
     echo "Progress 9%"
-    cp ~/.config/vim/* /mnt/backupfiles/dotfiles/
+    cp ~/.config/vim/* /mnt/backupfiles/dotfiles/vim/
     echo "Progress 10%"
     git -C "/mnt/backupfiles/dotfiles/" add --all  > /dev/null 2>&1
     git -C "/mnt/backupfiles/dotfiles/" commit -m "$MSG" > /dev/null 2>&1
