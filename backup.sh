@@ -23,6 +23,8 @@ then
     echo "Progress 8%"
     cp  ~/.oh-my-zsh/themes/fots.zsh-theme /mnt/backupfiles/dotfiles/
     echo "Progress 9%"
+    cp ~/.config/vim/* /mnt/backupfiles/dotfiles/
+    echo "Progress 10%"
     git -C "/mnt/backupfiles/dotfiles/" add --all  > /dev/null 2>&1
     git -C "/mnt/backupfiles/dotfiles/" commit -m "$MSG" > /dev/null 2>&1
     git -C "/mnt/backupfiles/dotfiles/" push origin master > /dev/null 2>&1

@@ -86,14 +86,14 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
 # workspaces
-set $ws1 1
-set $ws2 2
-set $ws3 3
-set $ws4 4
-set $ws5 5
-set $ws6 6
-set $ws7 "7"
-set $ws8 
+set $ws1 code
+set $ws2 www
+set $ws3 term
+set $ws4 misc
+set $ws5 extra
+set $ws6 docs
+set $ws7 comm
+set $ws8 music
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -281,16 +281,18 @@ bindsym XF86TouchpadOn exec --no-startup-id synclient Touchpadoff=0
 bindsym XF86TouchpadOff exec --no-startup-id synclient Touchpadoff=1
 
 # on startup
-exec spotify
+exec --no-startup-id i3-msg 'workspace 10:music; exec /usr/bin/spotify'
+
+# suspend deactivated
 exec "xset s off"
 exec "xset -dpms"
 exec "xset s noblank"
 
 # make hdmi monitor as primary
-exec "xrandr --output HDMI-A-0 --primary"
+exec --no-startup-id "/usr/bin/xrandr --output HDMI-A-0 --primary"
 
 # make hdmi to the left and dp to the right
-exec "xrandr --output HDMI-A-0 --auto --output DisplayPort-0 --auto --right-of HDMI-A-0"
+exec --no-startup-id "/usr/bin/xrandr --output HDMI-A-0 --auto --output DisplayPort-0 --auto --right-of HDMI-A-0"
 
 # user bindings
 bindsym $mod+f exec firefox
@@ -318,7 +320,7 @@ bar {
         focused_workspace  #000000 #e5c07b
         active_workspace   #000000 #e5c07b
         inactive_workspace #abb2bf #111111
-        urgent_workspace   #ffffff #900000
+        urgent_workspace   #000000 #e06c75
     }
 }
 
