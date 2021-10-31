@@ -37,3 +37,9 @@ noremap <Up> <Nop>
 noremap <Down> <Nop>
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+
+map <C-left> :bp<CR>
+map <C-right> :bn<CR>
+
+map <C-P> :Files<CR>
+map <C-F> :Lines<CR>

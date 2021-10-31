@@ -116,3 +116,9 @@ JAVA_HOME="/usr/lib/jvm/jdk-16.0.2"
 export JAVA_HOME
 export PATH=/home/fots/Templates/apache-maven-3.8.2/bin:$PATH
 
+alias vim="nvim"
+alias ls="exa --icons"
+alias l="ls -la --icons"
+alias ll="ls -l"
+. "/home/fots/.local/share/lscolors.sh"
+export LS_COLORS="$(vivid generate one-dark)"

@@ -25,6 +25,7 @@ then
     cp  ~/.oh-my-zsh/themes/fots.zsh-theme /mnt/backupfiles/dotfiles/shell
     echo "Progress 9%"
     cp ~/.config/vim/* /mnt/backupfiles/dotfiles/vim/
+    cp ~/.config/nvim/* /mnt/backupfiles/dotfiles/vim/
     echo "Progress 10%"
     git -C "/mnt/backupfiles/dotfiles/" add --all  > /dev/null 2>&1
     git -C "/mnt/backupfiles/dotfiles/" commit -m "$MSG" > /dev/null 2>&1

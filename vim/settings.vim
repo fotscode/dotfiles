@@ -1,7 +1,7 @@
 set relativenumber
 set mouse=a
 set numberwidth=1
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 syntax enable
 syn on
 set showcmd
@@ -21,7 +21,7 @@ filetype plugin indent on
 set splitbelow splitright
 
 "spanish lang
-set spell
+"set spell
 set spelllang=es_es,en_us
 set spellfile=~/.vim/dict.utf-8.add
 "]s next ortographic error
@@ -34,13 +34,13 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 " color bug
 set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 " default colorscheme
 colorscheme one
 set background=dark
 
-" prettier 
-autocmd BufWritePre *.js Neoformat
 
 
 " theme
@@ -56,12 +56,26 @@ let g:user_emmet_leader_key=','
 " exclude colorschemes
 let g:colorscheme_switcher_exclude = ['default', 'test', 'blue', 'darkblue', 'delek', 'desert', 'elflord', 'evening', 'industry', 'koehler', 'morning', 'murphy', 'pablo', 'peachpuff', 'ron', 'shine', 'slate', 'torte', 'zellner']
 
-" prettier
+"indent lines
+let g:indentLine_char='|'
+let g:indentLine_fileTypeExclude = ["coc-explorer","help","nerdtree"]
+let g:indentLine_leadingSpaceEnabled = 1 
+let g:indentLine_leadingSpaceChar = '·'
+
+"nvim
+if exists(':tnoremap')
+    tnoremap <Esc> <C-\><C-n>
+endif
+
+" prettie
 let g:javascript_plugin_jsdoc = 1
 let g:vim_jsx_pretty_colorful_config = 1
 
-"indent lines
-let g:indentLine_char='|'
-let g:indentLine_showFirstIndentLevel=1
-let g:indentLine_fileTypeExclude = ["coc-explorer","help","nerdtree"]
-let g:indentLine_leadingSpaceEnabled = 1 
+" startify header
+source $HOME/.config/vim/startify.vim
+
+" airline config
+source $HOME/.config/nvim/airline.vim
+
+" fzf config
+source $HOME/.config/nvim/fzf.vim
