@@ -106,7 +106,7 @@ alias py="python3.9"
 alias i="vimiv"
 alias z="zathura"
 alias zaread="~/Public/zaread/zaread.sh"
-alias neofetch="neofetch --w3m /home/fots/Pictures/art/lux_vitae.jpg --size 310px --colors 3 3 3 1" 
+alias neofetch="neofetch --kitty /home/fots/Pictures/art/lux_vitae.jpg --size 310px --colors 3 3 3 1" 
 
 # prints date, ram usage and uptime
 alias fots="bash ~/.scripts/echo_info.sh"
@@ -122,3 +122,6 @@ alias l="ls -la --icons"
 alias ll="ls -l"
 . "/home/fots/.local/share/lscolors.sh"
 export LS_COLORS="$(vivid generate one-dark)"
+
+alias speedread="~/Public/speedread-1.0/speedread"
+alias bat="batcat"

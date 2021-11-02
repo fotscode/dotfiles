@@ -79,3 +79,7 @@ source $HOME/.config/nvim/airline.vim
 
 " fzf config
 source $HOME/.config/nvim/fzf.vim
+
+" open non readable files with xdg-open
+autocmd BufReadCmd *.pdf,*.png,*.jpg,*.jpeg,*.gif silent !xdg-open % &
+autocmd BufEnter *.pdf,*.png,*.jpg,*.jpeg,*.gif bdelete

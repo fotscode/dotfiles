@@ -32,6 +32,9 @@ nnoremap <Leader>gl :exec '!firefox '.getline('.')<CR><CR>
 "clear vim command line
 nnoremap <C-l> :echon ''<CR>
 
+"open image
+nnoremap <Leader>gi :!vimiv %<CR>
+
 " Deactivating arrow keys
 noremap <Up> <Nop>
 noremap <Down> <Nop>

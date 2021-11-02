@@ -28,8 +28,9 @@ Plug 'mhinz/vim-startify' " start screen with recent projects
 Plug 'vim-airline/vim-airline' " tabs
 Plug 'vim-airline/vim-airline-themes' " tabs theme
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf.vim' " fzf
+Plug 'airblade/vim-rooter' " fzf
+Plug 'vim-test/vim-test' " tests
 "UML
 Plug 'aklt/plantuml-syntax' " syntax 
 Plug 'weirongxu/plantuml-previewer.vim' " previewer

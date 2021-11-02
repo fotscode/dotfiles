@@ -10,7 +10,8 @@
         "python",
         "typescript",
         "javascriptreact",
-        "typescriptreact"
+        "typescriptreact",
+        "java"
     ],
     "prettier.tabWidth": 4
 }

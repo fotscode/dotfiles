@@ -27,6 +27,8 @@ then
     cp ~/.config/vim/* /mnt/backupfiles/dotfiles/vim/
     cp ~/.config/nvim/* /mnt/backupfiles/dotfiles/vim/
     echo "Progress 10%"
+    cp ~/.config/kitty/kitty.conf /mnt/backupfiles/dotfiles/
+    echo "Progress 11%"
     git -C "/mnt/backupfiles/dotfiles/" add --all  > /dev/null 2>&1
     git -C "/mnt/backupfiles/dotfiles/" commit -m "$MSG" > /dev/null 2>&1
     git -C "/mnt/backupfiles/dotfiles/" push origin master > /dev/null 2>&1
