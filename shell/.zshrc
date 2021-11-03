@@ -122,6 +122,8 @@ alias l="ls -la --icons"
 alias ll="ls -l"
 . "/home/fots/.local/share/lscolors.sh"
 export LS_COLORS="$(vivid generate one-dark)"
+alias fd="fdfind"
+alias op=". ~/Public/op.sh"
 
 alias speedread="~/Public/speedread-1.0/speedread"
 alias bat="batcat"
