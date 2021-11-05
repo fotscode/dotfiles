@@ -134,3 +134,5 @@ alias py="python3.9"
 
 alias i="vimiv"
 alias z="zathura"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

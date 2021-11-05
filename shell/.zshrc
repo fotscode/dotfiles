@@ -127,3 +127,7 @@ alias op=". ~/Public/op.sh"
 
 alias speedread="~/Public/speedread-1.0/speedread"
 alias bat="batcat"
+
+export EDITOR="nvim"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
