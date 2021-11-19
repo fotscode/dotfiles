@@ -30,6 +30,7 @@ then
     cp ~/.config/kitty/kitty.conf /mnt/backupfiles/dotfiles/
     echo "Progress 11%"
     cp ~/Public/op.sh /mnt/backupfiles/dotfiles/shell
+    cp ~/Public/mvncreate.sh /mnt/backupfiles/dotfiles/shell
     echo "Progress 12%"
     git -C "/mnt/backupfiles/dotfiles/" add --all  > /dev/null 2>&1
     git -C "/mnt/backupfiles/dotfiles/" commit -m "$MSG" > /dev/null 2>&1
