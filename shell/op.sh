@@ -1,5 +1,6 @@
 #!/bin/bash
 FILE_EXT="pdf|mkv|mp4|mp3|epub|jpeg|jpg|png|gif|opus|m4a|odf|xlsx|xls|ods"
+DOCS_EXT="pptx|docx|odp"
 FZF_COLORS="bg:#282C34,bg+:#2e3139,hl:#707070,prompt:#c678dd,fg+:#abb2bf,fg:#abb2bf,pointer:#c678dd,hl+:#c678dd,info:#e5c07b,border:#c678dd,spinner:#61afef"
 OLD_PWD="."
 
@@ -20,6 +21,9 @@ then
 elif [[ "$res" =~ .($FILE_EXT)$ ]];
 then
     xdg-open "$res" &> /dev/null &disown 
+elif [[ "$res" =~ .($DOCS_EXT)$ ]];
+then
+    zaread $res&disown
 elif [[ -f "$res" ]];
 then
     vim "$res"

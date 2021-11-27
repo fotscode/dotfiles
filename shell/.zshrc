@@ -128,6 +128,7 @@ alias mvncreate="~/Public/mvncreate.sh"
 
 alias speedread="~/Public/speedread-1.0/speedread"
 alias bat="batcat"
+alias bc="bc -q"
 
 export EDITOR="nvim"
 bindkey -s '^o' 'op^M'
