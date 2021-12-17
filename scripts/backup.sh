@@ -44,6 +44,8 @@ then
     echo "Progress 27%"
     cp -rT ~/Books /mnt/backupfiles/Books
     echo "Progress 30%"
+    cp -rT ~/projects /mnt/backupfiles/projects
+    echo "Progress 35%"
     find ~/facultad -size +512M -printf "%f\n" > /tmp/exclude.txt
     rsync -av ~/facultad /mnt/backupfiles/facultad --exclude-from=/tmp/exclude.txt --quiet
     echo "Progress 100%"
