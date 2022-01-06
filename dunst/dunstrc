@@ -1,0 +1,79 @@
+[global]
+    # Which monitor should the notifications be displayed on.
+    monitor = 0
+    #mouse: follow mouse pointer
+    #keyboard: follow window with keyboard focus
+    #none: don't follow anything
+    follow = none
+    width = 400
+    height = 300
+    origin = top-right
+    offset = 10x25
+    scale = 0
+    # Maximum number of notification (0 means no limit) notification_limit = 0
+    progress_bar = true
+    progress_bar_height = 10
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+    indicate_hidden = yes
+    transparency = 0
+    separator_height = 2
+    padding = 12
+    horizontal_padding = 14
+    text_icon_padding = 20
+    frame_width = 2
+    frame_color = "#e5c07b"
+    separator_color = frame
+    sort = yes
+    font = Roboto Regular 10
+    line_height = 0
+    markup = full
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = 60
+    ellipsize = middle
+    ignore_newline = no
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = yes
+    icon_position = left
+    min_icon_size = 0
+    max_icon_size = 32
+    icon_path = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/home/fots/Pictures/icons
+    sticky_history = yes
+    history_length = 20
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/xdg-open
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    corner_radius = 0
+    ignore_dbusclose = false
+    force_xwayland = false
+    force_xinerama = false
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+[experimental]
+    per_monitor_dpi = false
+
+
+[urgency_low]
+    background = "#282c34"
+    foreground = "#abb2bf"
+    timeout = 6
+
+[urgency_normal]
+    background = "#282c34"
+    foreground = "#abb2bf"
+    timeout = 6
+
+[urgency_critical]
+    background = "#282c34"
+    foreground = "#e06c75"
+    timeout = 30
+    #default_icon = /path/to/icon
+

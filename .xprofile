@@ -1,0 +1,31 @@
+# Monitor config
+xrandr --output HDMI-1 --primary
+xrandr --output HDMI-1 --set TearFree on --auto --output DP-1 --auto --right-of HDMI-1 --set TearFree on
+
+# Don't Randomly Turn off
+set s off
+xset -dpms
+xset s noblank
+
+# Speedy keys
+xset r rate 210 40
+
+# Environment variables set everywhere
+export EDITOR="nvim"
+export TERMINAL="kitty"
+export BROWSER="firefox"
+export SHELL="zsh"
+
+# XDG Paths
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
+export XDG_DATA_HOME=$HOME/.local/share
+
+# Screenshots
+flameshot &
+
+# zsh config dir
+export ZDOTDIR=$HOME/.config/zsh
+
+#nitrogen background
+nitrogen --restore
