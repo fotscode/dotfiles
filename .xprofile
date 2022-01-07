@@ -3,7 +3,7 @@ xrandr --output HDMI-1 --primary
 xrandr --output HDMI-1 --set TearFree on --auto --output DP-1 --auto --right-of HDMI-1 --set TearFree on
 
 # Don't Randomly Turn off
-set s off
+xset s off
 xset -dpms
 xset s noblank
 
@@ -16,7 +16,7 @@ export TERMINAL="kitty"
 export BROWSER="firefox"
 export SHELL="zsh"
 
-# XDG Paths
+## XDG Paths
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
