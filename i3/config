@@ -257,16 +257,6 @@ mode "$mode_gaps_outer" {
     bindsym Escape mode "default"
 }
 
-# on startup
-exec --no-startup-id i3-msg 'workspace $ws8:music; exec /usr/bin/spotify'
-
-# user bindings
-bindsym $mod+f exec firefox
-bindsym $mod+c exec google-chrome
-bindsym $mod+e exec "kitty ranger"
-bindsym $mod+t exec "kitty btop"
-bindsym Print exec flameshot gui
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -286,6 +276,19 @@ bar {
         urgent_workspace   #000000 #e06c75
     }
 }
+
+# on startup
+exec --no-startup-id i3-msg 'workspace $ws8; exec /usr/bin/spotify'
+exec '/usr/bin/thunderbird --class start_on_scratch'
+
+for_window [con_mark=start_on_scratch] move scratchpad
+
+# user bindings
+bindsym $mod+f exec firefox
+bindsym $mod+c exec google-chrome
+bindsym $mod+e exec "kitty ranger"
+bindsym $mod+t exec "kitty btop"
+bindsym Print exec flameshot gui
 
 # Pulse Audio controls
 bindsym XF86AudioPlay exec playerctl play-pause
