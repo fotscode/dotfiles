@@ -279,13 +279,12 @@ bar {
 
 # on startup
 exec --no-startup-id i3-msg 'workspace $ws8; exec /usr/bin/spotify'
-exec '/usr/bin/thunderbird --class start_on_scratch'
-
-for_window [con_mark=start_on_scratch] move scratchpad
+exec "thunderbird --class scratchthunderbird,scratchthunderbird"
+for_window [class="scratchthunderbird"] , move scratchpad
 
 # user bindings
 bindsym $mod+f exec firefox
-bindsym $mod+c exec google-chrome
+bindsym $mod+c exec google-chrome-stable
 bindsym $mod+e exec "kitty ranger"
 bindsym $mod+t exec "kitty btop"
 bindsym Print exec flameshot gui
