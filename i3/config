@@ -191,16 +191,16 @@ mode "resize" {
 # Pressing right will grow the window’s width.
 # Pressing up will shrink the window’s height.
 # Pressing down will grow the window’s height.
-    bindsym h resize shrink width 5 px or 5 ppt
-    bindsym j resize grow height 5 px or 5 ppt
-    bindsym k resize shrink height 5 px or 5 ppt
-    bindsym l resize grow width 5 px or 5 ppt
+    bindsym l resize shrink width 5 px or 5 ppt
+    bindsym k resize grow height 5 px or 5 ppt
+    bindsym j resize shrink height 5 px or 5 ppt
+    bindsym h resize grow width 5 px or 5 ppt
 
 # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 10 px or 10 ppt
-    bindsym Down resize grow height 10 px or 10 ppt
-    bindsym Up resize shrink height 10 px or 10 ppt
-    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Right resize shrink width 10 px or 10 ppt
+    bindsym Up resize grow height 10 px or 10 ppt
+    bindsym Down resize shrink height 10 px or 10 ppt
+    bindsym Left resize grow width 10 px or 10 ppt
 
 # exit resize mode: Enter or Escape
     bindsym Return mode "default"
@@ -278,6 +278,7 @@ bar {
 }
 
 # on startup
+exec_always "alttab -pk Left -nk Right -d 1"
 exec --no-startup-id i3-msg 'workspace $ws8; exec /usr/bin/spotify'
 exec "thunderbird --class scratchthunderbird,scratchthunderbird"
 for_window [class="scratchthunderbird"] , move scratchpad
@@ -298,5 +299,6 @@ bindsym XF86AudioLowerVolume exec --no-startup-id "/home/fots/.local/bin/changev
 bindsym XF86AudioMute exec --no-startup-id "/home/fots/.local/bin/changevolume mute" 
 
 # fibonacci like
-default_orientation vertical #start in opposite orientation from your monitor
+# start in opposite orientation from your monitor
+default_orientation vertical 
 for_window [class=".*"] split toggle #toggles split at each new window
