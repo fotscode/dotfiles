@@ -24,9 +24,6 @@ export XDG_DATA_HOME=$HOME/.local/share
 # Screenshots
 flameshot &
 
-# Alt-Tab
-alttab -pk Left -nk Right -d 1 &
-
 # zsh config dir
 export ZDOTDIR=$HOME/.config/zsh
 
