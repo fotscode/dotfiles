@@ -3,7 +3,7 @@ alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git
 alias nvimrc='nvim ~/.config/nvim/'
 alias zshrc='nvim ~/.config/zsh/'
 alias i3rc='nvim ~/.config/i3/config'
-alias i3statusrc='nvim ~/.config/i3/config'
+alias i3statusrc='nvim ~/.config/i3status/config'
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
