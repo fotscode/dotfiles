@@ -28,10 +28,14 @@ vim.cmd [[
     autocmd!
     autocmd User AlphaReady set showtabline=0 | autocmd BufUnload <buffer> set showtabline=2
   augroup end
-]]
 
--- Autoformat
--- augroup _lsp
---   autocmd!
---   autocmd BufWritePre * lua vim.lsp.buf.formatting()
--- augroup end
+  augroup i3config_ft_detection
+    autocmd!
+    au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
+  augroup end
+
+  augroup _lsp
+    autocmd!
+    autocmd BufWritePre * lua vim.lsp.buf.formatting()
+  augroup end
+]]

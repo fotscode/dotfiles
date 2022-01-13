@@ -100,6 +100,9 @@ return packer.startup(function(use)
   -- Color hexvalues
   use 'norcalli/nvim-colorizer.lua'
 
+  -- i3 syntax
+  use 'mboughaba/i3config.vim'
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
