@@ -4,6 +4,7 @@ alias nvimrc='nvim ~/.config/nvim/'
 alias zshrc='nvim ~/.config/zsh/'
 alias i3rc='nvim ~/.config/i3/config'
 alias i3statusrc='nvim ~/.config/i3status/config'
+alias weather="curl wttr.in"
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
@@ -20,7 +21,9 @@ alias psmem='ps auxf | sort -nr -k 4 | head -5'
 # get top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
-alias ls='ls --color=auto'
+# exa as ls
+alias ls="exa"
+
 alias l='ls -a'
 alias ll='ls -la'
 
@@ -34,3 +37,5 @@ alias z="zathura"
 
 alias zaread="~/Public/zaread/zaread.sh"
 
+# if not set, op runs in another shell
+alias op=". op"
