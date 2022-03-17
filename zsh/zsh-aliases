@@ -29,6 +29,8 @@ alias ll='ls -la'
 
 alias parup="paru --bottomup"
 
+alias oldvim="vim"
+
 alias vim="nvim"
 
 alias i="GTK_THEME=Adwaita:dark vimiv"
@@ -36,6 +38,8 @@ alias i="GTK_THEME=Adwaita:dark vimiv"
 alias z="zathura"
 
 alias zaread="~/Public/zaread/zaread.sh"
+
+alias bc="bc ~/.config/bc/bclib -l -q"
 
 # if not set, op runs in another shell
 alias op=". op"
