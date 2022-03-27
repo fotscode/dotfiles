@@ -229,3 +229,28 @@ define rad(deg) {
 define deg(rad) {
     return rad/pi*180;
 }
+
+define bin(n,k,p){
+    return c(n,k)*(p)^k*(1-p)^(n-k)
+}
+
+define esp_bin(ini,fin,n,p){
+    total = 0;
+    for (i = ini; i<=fin; i++ ){
+        total+=i*bin(n,i,p);
+    }
+    return total;
+}
+
+define geom(k,p){
+  return ((1-p)^(k-1))*p;
+}
+
+define poisson(k,lam){
+  return (e^(-lam)*lam^k) / (fac(k));
+}
+
+define hgeom(p,k,n,x){
+  return (c(k,x)*c((p-k),(n-x)))/(c(p,n));
+}
+
