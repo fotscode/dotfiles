@@ -247,7 +247,7 @@ define geom(k,p){
 }
 
 define poisson(k,lam){
-  return (e^(-lam)*lam^k) / (fac(k));
+  return ((e^(-lam))*((lam)^k)) / (fac(k));
 }
 
 define hgeom(p,k,n,x){
