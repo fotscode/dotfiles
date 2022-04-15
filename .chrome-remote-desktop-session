@@ -1,0 +1,7 @@
+# You will have to uncomment one of the following lines for CRD to work
+# Remove the # and save the file.
+# 
+export $(dbus-launch)
+#exec i3-with-shmlog
+exec i3
+#exec startxfce4
