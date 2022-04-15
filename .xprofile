@@ -2,7 +2,10 @@
 export GTK_THEME=Adwaita:dark
 
 # Noisetorch
-noisertorch -i alsa_input.usb-Kingston_Technology_Company_HyperX_Cloud_Flight_Wireless-00.mono-fallback
+noisetorch -i alsa_input.usb-Kingston_Technology_Company_HyperX_Cloud_Flight_Wireless-00.mono-fallback
+
+# xbindkeys
+xbindkeys
 
 # Monitor config
 xrandr --output HDMI-A-0 --primary --set TearFree on
@@ -35,3 +38,6 @@ export ZDOTDIR=$HOME/.config/zsh
 
 #nitrogen background
 nitrogen --restore
+
+# load Xresources
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
