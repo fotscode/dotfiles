@@ -1,0 +1,21 @@
+[cputemperature]
+label= 
+command=~/.config/scripts/cpu_temp
+interval=1
+
+[time]
+label=
+command=date '+ %a %d/%m/%Y  %H:%M:%S' 
+interval=5
+
+[volume]
+label= 
+#label=♪
+interval=1
+signal=10
+command=pamixer --get-volume-human
+
+[rofi]
+align=center
+full_text= 
+command=rofi -combi-modi window,drun -show combi
