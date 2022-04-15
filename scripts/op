@@ -14,7 +14,7 @@ fi
 ACTUAL_PWD=`pwd`
 USER=`whoami`
 NEW_PROMPT=${ACTUAL_PWD/\/home\/$USER/'~'}
-res=`fd -H | fzf -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --preview='bat --style=numbers --color=always --line-range :500 {}' --color "$FZF_COLORS"`
+res=`fd -H | fzf -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --preview='fzfpreview {}' --color "$FZF_COLORS"`
 
 if [[ -d "$res" ]]; 
 then   

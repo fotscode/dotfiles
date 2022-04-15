@@ -1,0 +1,13 @@
+#!/bin/bash
+if [[ -f "$1" ]];
+then
+  if [[ $(grep -rIL '' "$1" | wc -l) == 1 ]];
+  then 
+    echo "Binary file"
+    file "$1"
+  else
+    bat --style=numbers --color=always --line-range :500 "$1"
+  fi
+elif [[ -d "$1" ]]; then
+  tree -L 2 -C "$1" 
+fi 
