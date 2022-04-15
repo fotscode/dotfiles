@@ -33,6 +33,7 @@ alias oldvim="vim"
 
 alias vim="nvim"
 
+alias sxiv="sxiv -a"
 alias i="sxiv"
 
 alias z="zathura"
@@ -40,6 +41,9 @@ alias z="zathura"
 alias zaread="~/Public/zaread/zaread.sh"
 
 alias bc="bc ~/.config/bc/bclib -l -q"
+
+# i use arch btw
+alias btw="neofetch"
 
 # if not set, op runs in another shell
 alias op=". op"
