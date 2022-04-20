@@ -76,17 +76,17 @@ bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
 # workspaces
-set $ws1 1:code
-set $ws2 2:www
-set $ws3 3:term
-set $ws4 4:misc
-set $ws5 5:extra
-set $ws6 6:docs
-set $ws7 7:comm
-set $ws8 8:music
-set $ws9 9:cal
-set $ws0 0:phone
-
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws0 "0"
+#
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
 bindsym $mod+2 workspace number $ws2
@@ -110,19 +110,7 @@ bindsym $mod+Ctrl+7 move container to workspace number $ws7
 bindsym $mod+Ctrl+8 move container to workspace number $ws8
 bindsym $mod+Ctrl+9 move container to workspace number $ws9
 bindsym $mod+Ctrl+0 move container to workspace number $ws0
-
-# Move to workspace with focused container
-bindsym $mod+Shift+1 move container to workspace number $ws1; workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2; workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3; workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4; workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5; workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6; workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7; workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws0; workspace number $ws0
-
+#
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
 for_window [class="Calamares"] floating enable border normal
@@ -233,23 +221,23 @@ mode "$mode_gaps_outer" {
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
-    status_command  i3blocks | ~/.config/i3spotifystatus/pystatus.py position top tray_output none
-    font pango: DejaVu Sans Mono, FontAwesome5Free 10
-    tray_output none
-    position top
-    strip_workspace_numbers yes
-    separator_symbol ⁞
-    colors {
-        background #282c34
-        statusline #61afef
-
-        focused_workspace  #000000 #e5c07b
-        active_workspace   #000000 #e5c07b
-        inactive_workspace #abb2bf #111111
-        urgent_workspace   #000000 #e06c75
-    }
-}
+# bar {
+#     status_command  i3blocks | ~/.config/i3spotifystatus/pystatus.py position top tray_output none
+#     font pango: DejaVu Sans Mono, FontAwesome5Free 10
+#     tray_output none
+#     position top
+#     strip_workspace_numbers yes
+#     separator_symbol ⁞
+#     colors {
+#         background #282c34
+#         statusline #61afef
+# 
+#         focused_workspace  #000000 #e5c07b
+#         active_workspace   #000000 #e5c07b
+#         inactive_workspace #abb2bf #111111
+#         urgent_workspace   #000000 #e06c75
+#     }
+# }
 
 # on startup
 exec_always "alttab -pk Left -nk Right -d 1"
@@ -284,3 +272,6 @@ bindsym XF86AudioMute exec --no-startup-id "/home/fots/.local/bin/changevolume m
 # start in opposite orientation from your monitor
 default_orientation vertical 
 for_window [class=".*"] split toggle #toggles split at each new window
+
+# polybar config
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh

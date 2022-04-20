@@ -1,0 +1,10 @@
+#!/bin/sh
+volume=$(amixer get Capture | tail -n 1 )
+state=$(echo $volume | awk -F ' ' '{print $5}' | tr -d '[]')
+if [[ $state == "on" ]];
+then
+  volume=$(echo $volume | awk -F ' ' '{print $4}' | tr -d '[]')
+  echo " $volume"
+else
+  echo " 0%"
+fi
