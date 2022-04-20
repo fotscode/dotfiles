@@ -10,10 +10,14 @@ interval=5
 
 [volume]
 label= 
-#label=♪
 interval=1
 signal=10
 command=pamixer --get-volume-human
+
+[microphone]
+label= 
+interval=1
+command=echo $(amixer get Capture | tail -n 1 | awk -F ' ' '{print $4}' | tr -d '[]')
 
 [rofi]
 align=center
