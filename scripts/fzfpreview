@@ -1,10 +1,14 @@
 #!/bin/bash
 if [[ -f "$1" ]];
 then
-  if [[ $(grep -rIL '' "$1" | wc -l) == 1 ]];
+  file=$(basename -- "$1")
+  fullpath=$(realpath "$1")
+  if [[ "${file##*.}" == "pdf" ]];
+  then
+    pdftotext "$1" -
+  elif [[ $(grep -rIL '' "$1" | wc -l) == 1 ]];
   then 
-    echo "Binary file"
-    file "$1"
+    exiftool "$fullpath"
   else
     bat --style=numbers --color=always --line-range :500 "$1"
   fi
