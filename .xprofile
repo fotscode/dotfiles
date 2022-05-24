@@ -39,5 +39,11 @@ export ZDOTDIR=$HOME/.config/zsh
 #nitrogen background
 nitrogen --restore
 
+# polkit
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+#xbindkeys 
+killall -HUP xbindkeys
+
 # load Xresources
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources

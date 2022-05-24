@@ -1,0 +1,10 @@
+#!/bin/bash
+if [[ $# -ne 1 ]];
+then
+  echo "Ada Compiler"
+  echo "Usage: adac <filename>"
+  exit 1
+fi
+file_with_ext=$(basename -- "$1")
+file_name="${file_with_ext%.*}"
+gcc -c "$file_with_ext" && gnatbind "$file_name" && gnatlink "$file_name"

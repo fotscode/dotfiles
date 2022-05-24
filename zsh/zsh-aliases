@@ -45,5 +45,8 @@ alias bc="bc ~/.config/bc/bclib -l -q"
 # i use arch btw
 alias btw="neofetch"
 
+# reboot to avoid watchdog
+alias reboot="/sbin/shutdown -r now"
+
 # if not set, op runs in another shell
 alias op=". op"

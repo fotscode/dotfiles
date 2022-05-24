@@ -29,11 +29,10 @@ then
 elif [[ "$res" =~ .($IMG_EXT)$ ]];
 then
   dir="${res%*/*}"
-  dirs=$(ls "$dir" | grep -P ".($IMG_EXT)")
+  dirs=$(ls "$dir" | grep -P ".($IMG_EXT)" | sort)
   f=$(echo "${res/$dir}" | cut -c 2-)
   index=$(echo ${dirs/$f//} | awk '/\// {print FNR}')
   sxiv ${res%/*}/. -n "$index"&disown
-
 elif [[ -f "$res" ]];
 then
     vim "$res"

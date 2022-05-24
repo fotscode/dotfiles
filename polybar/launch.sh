@@ -6,9 +6,15 @@ polybar-msg cmd quit
 # Otherwise you can use the nuclear option:
 # killall -q polybar
 
-# Launch bar1 and bar2
-echo "---" | tee -a /tmp/polybar1.log /tmp/polybar2.log
-polybar monleft 2>&1 | tee -a /tmp/polybar1.log & disown
-polybar monright 2>&1 | tee -a /tmp/polybar2.log & disown
-
-echo "Bars launched..."
+i=0
+if type "xrandr"; then
+for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+  let i++
+  MONITOR=$m polybar --reload mon$i &
+  echo $m
+  echo mon$i
+done
+else
+ polybar --reload mon1 &
+ polybar --reload mon2 &
+fi

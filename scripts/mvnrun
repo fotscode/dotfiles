@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 if [[ $# -ne 2 ]];
 then
   echo "Usage: <artifact_id> <main_class_name>"
