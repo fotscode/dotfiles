@@ -52,3 +52,9 @@ kwalletrc
 protonvpn/
 systemd/
 unity3d/
+autostart/*
+byobu/*
+inkscape/*
+kconf_updaterc
+khotkeysrc
+krusaderrc
