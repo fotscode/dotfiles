@@ -17,6 +17,7 @@ vim.cmd [[
     autocmd!
     autocmd FileType markdown setlocal wrap
     autocmd FileType markdown setlocal spell
+    autocmd FileType markdown setlocal spelllang="es,en,cjk"
   augroup end
 
   augroup _auto_resize
