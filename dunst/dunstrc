@@ -58,7 +58,7 @@
     mouse_right_click = close_all
 
 [experimental]
-    per_monitor_dpi = false
+    per_monitor_dpi = true
 
 
 [urgency_low]
