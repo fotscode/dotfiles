@@ -5,6 +5,7 @@ alias zshrc='nvim ~/.config/zsh/'
 alias i3rc='nvim ~/.config/i3/config'
 alias i3statusrc='nvim ~/.config/i3status/config'
 alias weather="curl wttr.in"
+alias clearpacman="sudo pacman -Sc"
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
