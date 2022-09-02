@@ -23,7 +23,8 @@ bufferline.setup {
     left_trunc_marker = "",
     right_trunc_marker = "",
     indicator={
-      icon = "▎",
+      --icon = "▎",
+      style="underline",
     },
     --- name_formatter can be used to change the buffer's label in the bufferline.
     --- Please note some names can/will break the
@@ -38,7 +39,7 @@ bufferline.setup {
     max_name_length = 30,
     max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
     tab_size = 21,
-    diagnostics = false, -- | "nvim_lsp" | "coc",
+    diagnostics = "nvim_lsp", -- | "nvim_lsp" | "coc",
     diagnostics_update_in_insert = false,
     -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
     --   return "("..count..")"
@@ -67,7 +68,7 @@ bufferline.setup {
     persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
     -- can also be a table containing 2 custom separators
     -- [focused and unfocused]. eg: { '|', '|' }
-    separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
+    separator_style = "slant", -- | "thick" | "thin" | { 'any', 'any' },
     enforce_regular_tabs = true,
     always_show_bufferline = true,
     -- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
@@ -77,7 +78,7 @@ bufferline.setup {
   },
   highlights = {
     fill = {
-      fg = { attribute = "fg", highlight = "#ff0000" },
+      fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
     },
     background = {
@@ -85,11 +86,10 @@ bufferline.setup {
       bg = { attribute = "bg", highlight = "TabLine" },
     },
 
-    -- buffer_selected = {
-    --   guifg = {attribute='fg',highlight='#ff0000'},
-    --   guibg = {attribute='bg',highlight='#0000ff'},
-    --   gui = 'none'
-    --   },
+    buffer_selected = {
+      fg = {attribute='fg',highlight='TabLine'},
+      bg = {attribute='bg',highlight='#0000ff'},
+    },
     buffer_visible = {
       fg = { attribute = "fg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
@@ -109,33 +109,30 @@ bufferline.setup {
     --   },
 
     tab_selected = {
-      fg = { attribute = "fg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      fg = { attribute = "fg", highlight = "TabLineSel" },
+      bg = { attribute = "bg", highlight = "TabLineSel" },
     },
     tab = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      fg = { attribute = "fg", highlight = "TabLineSel" },
+      bg = { attribute = "bg", highlight = "TabLineSel" },
     },
     tab_close = {
       -- guifg = {attribute='fg',highlight='LspDiagnosticsDefaultError'},
-      fg = { attribute = "fg", highlight = "TabLineSel" },
+      fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultError" },
       bg = { attribute = "bg", highlight = "Normal" },
     },
 
     duplicate_selected = {
-      fg = { attribute = "fg", highlight = "TabLineSel" },
-      bg = { attribute = "bg", highlight = "TabLineSel" },
-      italic = true,
+      fg = { attribute = "fg", highlight = "TabLine" },
+      bg = { attribute = "bg", highlight = "TabLine" },
     },
     duplicate_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-      italic = true,
+      fg = { attribute = "fg", highlight = "TabLineSel" },
+      bg = { attribute = "bg", highlight = "TabLineSel" },
     },
     duplicate = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
-      italic = true,
+      fg = { attribute = "fg", highlight = "TabLineSel" },
+      bg = { attribute = "bg", highlight = "TabLineSel" },
     },
 
     modified = {
@@ -152,11 +149,11 @@ bufferline.setup {
     },
 
     separator = {
-      fg = { attribute = "fg", highlight = "TabLine" },
+      fg = { attribute = "bg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
     },
     separator_selected = {
-      fg = { attribute = "fg", highlight = "Normal" },
+      fg = { attribute = "bg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "Normal" },
     },
     separator_visible = {
@@ -164,8 +161,8 @@ bufferline.setup {
       bg = {attribute='bg',highlight='TabLine'}
       },
     indicator_selected = {
-      fg = { attribute = "fg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      fg = { attribute = "fg", highlight = "Conditional" },
+      bg = { attribute = "bg", highlight = "Conditional" },
     },
   },
 }
