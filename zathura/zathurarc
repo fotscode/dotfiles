@@ -1,1 +1,5 @@
 set selection-clipboard clipboard
+set selection-notification false
+set statusbar-basename true
+set window-title-basename true
+map <F7> toggle_statusbar
