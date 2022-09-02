@@ -1,6 +1,6 @@
 #!/bin/bash
 FILE_EXT="pdf|mkv|mp4|mp3|epub|opus|m4a|odf|xlsx|xls|ods"
-DOCS_EXT="pptx|docx|odp"
+DOCS_EXT="pptx|ppt|docx|doc|odp"
 IMG_EXT="jpeg|jpg|png|gif|webp"
 FZF_COLORS="bg:#282C34,bg+:#2e3139,hl:#707070,prompt:#c678dd,fg+:#abb2bf,fg:#abb2bf,pointer:#c678dd,hl+:#c678dd,info:#e5c07b,border:#c678dd,spinner:#61afef"
 OLD_PWD="."
