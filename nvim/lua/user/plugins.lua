@@ -63,6 +63,7 @@ return packer.startup(function(use)
   -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
   -- use "lunarvim/darkplus.nvim"
   use "lunarvim/onedarker.nvim"
+  use "monsonjeremy/onedark.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -102,6 +103,9 @@ return packer.startup(function(use)
 
   -- i3 syntax
   use 'mboughaba/i3config.vim'
+
+  -- github copilot
+  use 'github/copilot.vim'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
