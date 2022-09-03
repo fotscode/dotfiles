@@ -106,9 +106,19 @@ return packer.startup(function(use)
 
   -- github copilot
   use 'github/copilot.vim'
-
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
+  use {
+    "zbirenbaum/copilot.lua",
+    event = { "VimEnter" },
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup()
+      end, 100)
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    module = "copilot_cmp",
+  }
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
