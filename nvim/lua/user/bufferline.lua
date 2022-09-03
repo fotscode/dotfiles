@@ -22,9 +22,9 @@ bufferline.setup {
     -- close_icon = '',
     left_trunc_marker = "",
     right_trunc_marker = "",
-    indicator={
+    indicator = {
       --icon = "▎",
-      style="underline",
+      style = "underline",
     },
     --- name_formatter can be used to change the buffer's label in the bufferline.
     --- Please note some names can/will break the
@@ -87,8 +87,8 @@ bufferline.setup {
     },
 
     buffer_selected = {
-      fg = {attribute='fg',highlight='TabLine'},
-      bg = {attribute='bg',highlight='#0000ff'},
+      fg = { attribute = 'fg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = '#0000ff' },
     },
     buffer_visible = {
       fg = { attribute = "fg", highlight = "TabLine" },
@@ -117,9 +117,8 @@ bufferline.setup {
       bg = { attribute = "bg", highlight = "TabLineSel" },
     },
     tab_close = {
-      -- guifg = {attribute='fg',highlight='LspDiagnosticsDefaultError'},
       fg = { attribute = "fg", highlight = "LspDiagnosticsDefaultError" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      bg = { attribute = "bg", highlight = "TabLine" },
     },
 
     duplicate_selected = {
@@ -136,18 +135,17 @@ bufferline.setup {
     },
 
     modified = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      fg = { attribute = "fg", highlight = "Normal" },
+      bg = { attribute = "bg", highlight = "Normal" },
     },
     modified_selected = {
       fg = { attribute = "fg", highlight = "Normal" },
       bg = { attribute = "bg", highlight = "Normal" },
     },
     modified_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
-      bg = { attribute = "bg", highlight = "TabLine" },
+      fg = { attribute = "fg", highlight = "Normal" },
+      bg = { attribute = "bg", highlight = "Normal" },
     },
-
     separator = {
       fg = { attribute = "bg", highlight = "TabLine" },
       bg = { attribute = "bg", highlight = "TabLine" },
@@ -157,9 +155,9 @@ bufferline.setup {
       bg = { attribute = "bg", highlight = "Normal" },
     },
     separator_visible = {
-      fg = {attribute='bg',highlight='TabLine'},
-      bg = {attribute='bg',highlight='TabLine'}
-      },
+      fg = { attribute = 'bg', highlight = 'TabLine' },
+      bg = { attribute = 'bg', highlight = 'TabLine' }
+    },
     indicator_selected = {
       fg = { attribute = "fg", highlight = "Conditional" },
       bg = { attribute = "bg", highlight = "Conditional" },
