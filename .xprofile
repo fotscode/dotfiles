@@ -49,4 +49,4 @@ killall -HUP xbindkeys
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 # load redshift
-redshift -l manual &
+redshift -l manual &disown
