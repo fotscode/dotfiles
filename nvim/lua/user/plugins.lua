@@ -111,14 +111,12 @@ return packer.startup(function(use)
     event = { "VimEnter" },
     config = function()
       vim.defer_fn(function()
-        require("copilot").setup()
+        require "copilot"
       end, 100)
     end,
   }
-  use {
-    "zbirenbaum/copilot-cmp",
-    module = "copilot_cmp",
-  }
+  use "zbirenbaum/copilot-cmp"
+  
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
