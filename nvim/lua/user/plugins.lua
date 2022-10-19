@@ -72,6 +72,14 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-cmdline" -- cmdline completions
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function ()
+      require("copilot_cmp").setup()
+    end
+  }
+  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -104,19 +112,20 @@ return packer.startup(function(use)
   -- i3 syntax
   use 'mboughaba/i3config.vim'
 
+  -- jinja formatting
+  use 'Glench/Vim-Jinja2-Syntax'
+
   -- github copilot
-  use 'github/copilot.vim'
+  --use 'github/copilot.vim'
   use {
     "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
+    event =  "VimEnter" ,
     config = function()
       vim.defer_fn(function()
-        require "copilot"
+        require("copilot").setup()
       end, 100)
     end,
   }
-  use "zbirenbaum/copilot-cmp"
-  
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end

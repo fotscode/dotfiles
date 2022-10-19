@@ -8,6 +8,11 @@ if not snip_status_ok then
   return
 end
 
+local tabnine_status_ok, _ = pcall(require, "user.tabnine")
+if not tabnine_status_ok then
+  return
+end
+
 local compare = require "cmp.config.compare"
 
 require("luasnip/loaders/from_vscode").lazy_load()
@@ -54,8 +59,8 @@ cmp.setup {
     end,
   },
   mapping = {
-    ["<C-k>"] = cmp.mapping.select_prev_item(),
-		["<C-j>"] = cmp.mapping.select_next_item(),
+    ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(),{"i","c"}),
+    ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(),{"i","c"}),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -66,14 +71,16 @@ cmp.setup {
     },
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm { select = true },
+    ["<CR>"] = cmp.mapping.confirm { select = false, behavior = cmp.ConfirmBehavior.Replace },
     ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expandable() then
-        luasnip.expand()
+      elseif luasnip.jumpable(1) then
+        luasnip.jump(1)
       elseif luasnip.expand_or_jumpable() then
         luasnip.expand_or_jump()
+      elseif luasnip.expandable() then
+        luasnip.expand()
       elseif check_backspace() then
         fallback()
       else
@@ -103,55 +110,56 @@ cmp.setup {
       vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
       -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
       vim_item.menu = ({
+        copilot = "[COP]",
         nvim_lsp = "[LSP]",
         luasnip = "[Snippet]",
         buffer = "[Buffer]",
         path = "[Path]",
+    	cmp_tabnine = "[TN]",
       })[entry.source.name]
       return vim_item
     end,
   },
   sources = {
-    {
-      name = "copilot",
-      -- keyword_length = 0,
-      max_item_count = 3,
-      trigger_characters = {
-        {
-          ".",
-          ":",
-          "(",
-          "'",
-          '"',
-          "[",
-          ",",
-          "#",
-          "*",
-          "@",
-          "|",
-          "=",
-          "-",
-          "{",
-          "/",
-          "\\",
-          "+",
-          "?",
-          " ",
-          -- "\t",
-          -- "\n",
+    { 
+        name = "copilot",
+        group_index=2,
+        max_item_count=3,
+        trigger_characters = {
+            {
+              ".",
+              ":",
+              "(",
+              "'",
+              '"',
+              "[",
+              ",",
+              "#",
+              "*",
+              "@",
+              "|",
+              "=",
+              "-",
+              "{",
+              "/",
+              "\\",
+              "+",
+              "?",
+              " ",
+              "\t",
+              "\n",
+            },
         },
-      },
     },
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "path" },
+    { name = "cmp_tabnine",group_index=2},
+    { name = "nvim_lsp",group_index=2},
+    { name = "buffer",group_index=2},
+    { name = "path",group_index=2},
+    { name = "luasnip",group_index=2},
   },
   sorting = {
-    priority_weight = 2,
     comparators = {
-      -- require("copilot_cmp.comparators").prioritize,
-      -- require("copilot_cmp.comparators").score,
+      --require('cmp_tabnine.compare'),
       compare.offset,
       compare.exact,
       -- compare.scopes,
@@ -162,8 +170,8 @@ cmp.setup {
       compare.sort_text,
       compare.length,
       compare.order,
-      -- require("copilot_cmp.comparators").prioritize,
-      -- require("copilot_cmp.comparators").score,
+      --require("copilot_cmp.comparators").prioritize,
+      --require("copilot_cmp.comparators").score,
     },
   },
   confirm_opts = {
@@ -176,7 +184,6 @@ cmp.setup {
     },
   },
   experimental = {
-    ghost_text = false,
-    native_menu = false,
+    ghost_text = true,
   },
 }

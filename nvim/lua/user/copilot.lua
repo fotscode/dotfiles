@@ -3,24 +3,42 @@ if not status_ok then
   vim.notify("Copilot not installed")
   return
 end
-copilot.setup {
-  cmp = {
+
+copilot.setup{
+  panel = {
     enabled = true,
-    method = "getCompletionsCycling",
-  },
-  panel = { -- no config options yet
-    enabled = true,
-  },
-  ft_disable = { "markdown" },
-  -- plugin_manager_path = vim.fn.stdpath "data" .. "/site/pack/packer",
-  server_opts_overrides = {
-    -- trace = "verbose",
-    settings = {
-      advanced = {
-        -- listCount = 10, -- #completions for panel
-        inlineSuggestCount = 3, -- #completions for getCompletions
-      },
+    auto_refresh = false,
+    keymap = {
+      jump_prev = "[[",
+      jump_next = "]]",
+      accept = "<CR>",
+      refresh = "gr",
+      open = "<M-CR>"
     },
   },
+  suggestion = {
+    enabled = true,
+    auto_trigger = true,
+    debounce = 75,
+    keymap = {
+     accept = "<M-l>",
+     next = "<M-]>",
+     prev = "<M-[>",
+     dismiss = "<C-]>",
+    },
+  },
+  filetypes = {
+    yaml = false,
+    markdown = false,
+    help = false,
+    gitcommit = false,
+    gitrebase = false,
+    hgcommit = false,
+    svn = false,
+    cvs = false,
+    ["."] = false,
+  },
+  copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v17.5.0/bin/node", -- Node version must be < 18
+  plugin_manager_path = vim.fn.stdpath("data") .. "/site/pack/packer",
+  server_opts_overrides = {},
 }
-vim.g.copilot_node_command = "~/.nvm/versions/node/v17.5.0/bin/node"
