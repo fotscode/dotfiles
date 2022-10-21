@@ -1,0 +1,144 @@
+# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
+# Version: 1.8.7
+#
+# If you edit this file, do not forget to uncomment any lines
+# that you change.
+# The pound(#) symbol may be used anywhere for comments.
+#
+# To specify a key, you can use 'xbindkeys --key' or
+# 'xbindkeys --multikey' and put one of the two lines in this file.
+#
+# The format of a command line is:
+#    "command to start"
+#       associated key
+#
+#
+# A list of keys is in /usr/include/X11/keysym.h and in
+# /usr/include/X11/keysymdef.h
+# The XK_ is not needed.
+#
+# List of modifier:
+#   Release, Control, Shift, Mod1 (Alt), Mod2 (NumLock),
+#   Mod3 (CapsLock), Mod4, Mod5 (Scroll).
+#
+
+# The release modifier is not a standard X modifier, but you can
+# use it if you want to catch release events instead of press events
+
+# By defaults, xbindkeys does not pay attention with the modifiers
+# NumLock, CapsLock and ScrollLock.
+# Uncomment the lines above if you want to pay attention to them.
+
+#keystate_numlock = enable
+#keystate_capslock = enable
+#keystate_scrolllock= enable
+
+# Examples of commands:
+
+"xbindkeys_show" 
+  control+shift + q
+
+# set directly keycode (here control + f with my keyboard)
+#"xterm"
+#  c:41 + m:0x4
+#
+## specify a mouse button
+#"xterm"
+#  control + b:2
+
+"/home/fots/.local/bin/flameopen"
+  Control+Print
+
+"rofi -combi-modi window,drun -show combi"
+  Menu
+
+"xvkbd -xsendevent -text '\C\[Page_Up]'"
+  Control+Mod1+K
+
+"xvkbd -xsendevent -text '\C\[Page_Down]'"
+  Control+Mod1+J
+
+"xvkbd -xsendevent -text '\[Page_Up]'"
+  Mod1+K
+
+"xvkbd -xsendevent -text '\[Page_Down]'"
+  Mod1+J
+
+"xvkbd -xsendevent -text '\A\[Left]'"
+  Mod1+P
+
+"xvkbd -xsendevent -text '\A\[Right]'"
+  Mod1+N
+
+# arrow keys to super alt hjkl
+"xvkbd -xsendevent -text '\[Up]'"
+  Mod4+Mod1+K
+
+"xvkbd -xsendevent -text '\[Down]'"
+  Mod4+Mod1+J
+
+"xvkbd -xsendevent -text '\[Left]'"
+  Mod4+Mod1+H
+
+"xvkbd -xsendevent -text '\[Right]'"
+  Mod4+Mod1+L
+
+"xvkbd -xsendevent -text '\C\[Up]'"
+  Control+Mod4+Mod1+K
+
+"xvkbd -xsendevent -text '\C\[Down]'"
+  Control+Mod4+Mod1+J
+
+"xvkbd -xsendevent -text '\C\[Left]'"
+  Control+Mod4+Mod1+H
+
+"xvkbd -xsendevent -text '\C\[Right]'"
+  Control+Mod4+Mod1+L
+
+"xvkbd -xsendevent -text '\C\S\[Up]'"
+  Control+Shift+Mod4+Mod1+K
+
+"xvkbd -xsendevent -text '\C\S\[Down]'"
+  Control+Shift+Mod4+Mod1+J
+
+"xvkbd -xsendevent -text '\C\S\[Left]'"
+  Control+Shift+Mod4+Mod1+H
+
+"xvkbd -xsendevent -text '\C\S\[Right]'"
+  Control+Shift+Mod4+Mod1+L
+
+# home and end keybinds
+"xvkbd -xsendevent -text '\[Home]'"
+  Control+Mod1+H
+
+"xvkbd -xsendevent -text '\[End]'"
+  Control+Mod1+L
+
+"xvkbd -xsendevent -text '\S\[Home]'"
+  Control+Mod1+Shift+H
+
+"xvkbd -xsendevent -text '\S\[End]'"
+  Control+Mod1+Shift+L
+
+
+#"xterm -geom 50x20+20+20"
+#   Shift+Mod2+alt + s
+#
+## set directly keycode (here control+alt+mod2 + f with my keyboard)
+#"xterm"
+#  alt + c:0x29 + m:4 + mod2
+#
+## Control+Shift+a  release event starts rxvt
+#"rxvt"
+#  release+control+shift + a
+#
+## Control + mouse button 2 release event starts rxvt
+#"rxvt"
+#  Control + b:2 + Release
+
+##################################
+# End of xbindkeys configuration #
+##################################
