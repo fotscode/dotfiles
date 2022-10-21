@@ -73,3 +73,5 @@ pdfcpu/
 pgmodeler-1.0/
 pgmodeler/
 wireshark/
+nvim/java-debug
+nvim/vscode-java-test
