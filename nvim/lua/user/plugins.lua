@@ -46,17 +46,22 @@ return packer.startup(function(use)
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
     use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
     use "numToStr/Comment.nvim" -- Easily comment stuff
-    use "kyazdani42/nvim-web-devicons"
-    use "kyazdani42/nvim-tree.lua"
-    use "akinsho/bufferline.nvim"
-    use "moll/vim-bbye"
-    use "nvim-lualine/lualine.nvim"
-    use "akinsho/toggleterm.nvim"
-    use "ahmedkhalf/project.nvim"
-    use "lewis6991/impatient.nvim"
-    use "lukas-reineke/indent-blankline.nvim"
-    use "goolord/alpha-nvim"
-    use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight use "folke/which-key.nvim"
+    use "folke/todo-comments.nvim" -- todo comments
+    use "kyazdani42/nvim-web-devicons" -- icons
+    use "kyazdani42/nvim-tree.lua" -- tree
+    use "akinsho/bufferline.nvim" -- buffers
+    use "moll/vim-bbye" -- close buffers without messing up
+    use "nvim-lualine/lualine.nvim" -- bottom line w/ info
+    use "akinsho/toggleterm.nvim" -- terms inside neovim
+    use "ahmedkhalf/project.nvim" -- project management
+    use "lewis6991/impatient.nvim" -- faster startup
+    use "lukas-reineke/indent-blankline.nvim" -- indentation line
+    use "goolord/alpha-nvim" -- dashboard
+    use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
+    use "folke/which-key.nvim" -- menu for keybindings
+    use "nacro90/numb.nvim" -- peek at line numbers
+    use "andymass/vim-matchup" -- block % endblock
+    use "folke/zen-mode.nvim" -- zen mode :ZenMode
 
     -- Colorschemes
     -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -70,7 +75,8 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-path" -- path completions
     use "hrsh7th/cmp-cmdline" -- cmdline completions
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
-    use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-nvim-lsp" -- cmp source for nvim-lsp
+    -- AI completion
     use {
         "zbirenbaum/copilot-cmp",
         after = { "copilot.lua" },
@@ -88,8 +94,12 @@ return packer.startup(function(use)
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+    use "ray-x/lsp_signature.nvim" -- show function signature
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
     use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
+    use { 'kevinhwang91/nvim-bqf', ft = 'qf' } -- quickfix
+    use "SmiteshP/nvim-navic" -- navigation
+    use "j-hui/fidget.nvim" -- fidget spinner for lsp
 
     -- Telescope
     use "nvim-telescope/telescope.nvim"
@@ -102,6 +112,8 @@ return packer.startup(function(use)
     }
     use "JoosepAlviste/nvim-ts-context-commentstring"
     use "p00f/nvim-ts-rainbow"
+    use "windwp/nvim-ts-autotag"
+    use "kylechui/nvim-surround"
 
     -- Git
     use "lewis6991/gitsigns.nvim"
@@ -121,8 +133,9 @@ return packer.startup(function(use)
     use { "mfussenegger/nvim-dap", commit = "014ebd53612cfd42ac8c131e6cec7c194572f21d" }
     use { "rcarriga/nvim-dap-ui", commit = "d76d6594374fb54abf2d94d6a320f3fd6e9bb2f7" }
     use { "ravenxrz/DAPInstall.nvim", commit = "8798b4c36d33723e7bba6ed6e2c202f84bb300de" }
+
     -- github copilot
-    --use 'github/copilot.vim'
+    --use 'github/copilot.vim' -- used lua version
     use {
         "zbirenbaum/copilot.lua",
         event = "VimEnter",
@@ -135,4 +148,11 @@ return packer.startup(function(use)
     if PACKER_BOOTSTRAP then
         require("packer").sync()
     end
+
+    -- data generator and lab run
+    use {
+      "0x100101/lab.nvim",
+      run = "cd js && npm ci",
+    }
+
 end)
