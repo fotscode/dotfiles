@@ -49,7 +49,7 @@ M.setup = function()
 end
 
 local function attach_navic(client, bufnr)
-    vim.g.navic_silence = true
+    vim.g.navic_silence = false
     local status_ok, navic = pcall(require, "nvim-navic")
     if not status_ok then
         return
@@ -90,7 +90,7 @@ M.on_attach = function(client, bufnr)
     -- vim.notify(client.name .. " starting...")
     -- TODO: refactor this into a method that checks if string in list
     if client.name == "tsserver" then
-        client.resolved_capabilities.document_formatting = false
+        client.server_capabilities.document_formatting = false
     end
     lsp_keymaps(bufnr)
     attach_navic(client, bufnr)
@@ -101,8 +101,8 @@ M.on_attach = function(client, bufnr)
             require("jdtls").setup_dap { hotcodereplace = "auto" }
             require("jdtls.dap").setup_dap_main_class_configs()
         end
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.textDocument.completion.completionItem.snippetSupport = false
+        client.server_capabilities.document_formatting = false
+        client.server_capabilities.textDocument.completion.completionItem.snippetSupport = false
     end
 end
 
