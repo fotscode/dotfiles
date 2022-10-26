@@ -75,3 +75,4 @@ pgmodeler/
 wireshark/
 nvim/java-debug
 nvim/vscode-java-test
+vue/*
