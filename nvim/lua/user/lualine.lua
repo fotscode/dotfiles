@@ -233,10 +233,10 @@ local branch = {
     -- cond = hide_in_width_100,
     fmt = function(str)
         if str == "" or str == nil then
-            return "!=vcs"
+            return ""
         end
 
-        return str
+        return str .. hl_str(" ", "SLSep")
     end,
 }
 
@@ -431,7 +431,7 @@ lualine.setup {
         always_divide_middle = true,
     },
     sections = {
-        lualine_a = { mode, branch, right_pad_alt },
+        lualine_a = { mode, branch },
         lualine_b = { left_pad_alt, diagnostics, right_pad_alt },
         -- lualine_c = {},
         lualine_c = { current_signature },
