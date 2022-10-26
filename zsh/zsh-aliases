@@ -51,3 +51,5 @@ alias reboot="/sbin/shutdown -r now"
 
 # if not set, op runs in another shell
 alias op=". op"
+
+alias wpm="vim /mnt/backupfiles/wpm.txt"
