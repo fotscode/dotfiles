@@ -8,6 +8,8 @@ local servers = {
     "tsserver",
     "jdtls",
     "pyright",
+    "vuels",
+    "marksman"
 }
 
 lsp_installer.setup()
@@ -33,6 +35,11 @@ for _, server in pairs(servers) do
     if server == "pyright" then
         local pyright_opts = require "user.lsp.settings.pyright"
         opts = vim.tbl_deep_extend("force", pyright_opts, opts)
+    end
+
+    if server=="vuels" then
+        local vuels_opts = require "user.lsp.settings.vuels"
+        opts = vim.tbl_deep_extend("force", vuels_opts, opts)
     end
 
     if server == "jdtls" then goto continue end

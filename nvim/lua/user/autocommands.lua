@@ -55,6 +55,14 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end,
 })
 
+vim.api.nvim_create_autocmd({ "FileType" }, {
+    pattern = { "typescript","vue" },
+    callback = function()
+        vim.cmd [[
+      set shiftwidth=2
+    ]]
+    end,
+})
 
 -- Remove statusline and tabline when in Alpha
 vim.api.nvim_create_autocmd({ "User" }, {
