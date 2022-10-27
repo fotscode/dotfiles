@@ -16,5 +16,6 @@ null_ls.setup({
 		formatting.stylua,
 		formatting.google_java_format.with({ extra_args={"-a"} }),
     -- diagnostics.flake8
+        diagnostics.shellcheck,
 	},
 })
