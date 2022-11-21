@@ -9,5 +9,5 @@ export PATH=$HOME/.local/share/go/bin:$PATH
 export GOPATH=$HOME/.local/share/go
 export PATH=$HOME/.fnm:$PATH
 export PATH="$PATH:./node_modules/.bin"
-export JAVA_HOME="/usr/lib/jvm/java-18-openjdk"
+export JAVA_HOME="/usr/lib/jvm/java-19-openjdk"
 export PATH="$JAVA_HOME/bin:$PATH"

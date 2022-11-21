@@ -53,3 +53,5 @@ alias reboot="/sbin/shutdown -r now"
 alias op=". op"
 
 alias wpm="vim /mnt/backupfiles/wpm.txt"
+
+alias lyrics="sptlrx --current 'bold,#c678dd,#282c34' --before '#61afef,faint,italic' --after '#61afef,faint'"
