@@ -9,7 +9,9 @@ local servers = {
     "jdtls",
     "pyright",
     "vuels",
-    "marksman"
+    "marksman",
+    "lemminx",
+    "texlab"
 }
 
 lsp_installer.setup()
@@ -40,6 +42,16 @@ for _, server in pairs(servers) do
     if server=="vuels" then
         local vuels_opts = require "user.lsp.settings.vuels"
         opts = vim.tbl_deep_extend("force", vuels_opts, opts)
+    end
+
+    if server=="marksman" then
+        local marksman_opts = require "user.lsp.settings.marksman"
+        opts = vim.tbl_deep_extend("force", marksman_opts, opts)
+    end
+
+    if server=="texlab" then
+        local texlab_opts = require "user.lsp.settings.texlab"
+        opts = vim.tbl_deep_extend("force", texlab_opts, opts)
     end
 
     if server == "jdtls" then goto continue end
