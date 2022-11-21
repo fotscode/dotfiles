@@ -4,49 +4,51 @@ DOCS_EXT="pptx|ppt|docx|doc|odp"
 IMG_EXT="jpeg|jpg|png|gif|webp"
 FZF_COLORS="bg:#282C34,bg+:#2e3139,hl:#707070,prompt:#c678dd,fg+:#abb2bf,fg:#abb2bf,pointer:#c678dd,hl+:#c678dd,info:#e5c07b,border:#c678dd,spinner:#61afef"
 OLD_PWD="."
-WIDTH=$(xwininfo -id $(xdotool getactivewindow) | awk -F ":" '/Width/ {print $2}' | xargs)
-HEIGHT=$(xwininfo -id $(xdotool getactivewindow)| grep Height | tail -n 1 | cut -d ":" -f2| xargs)
+IGNORE="workspace"
+WIDTH=$(xwininfo -id "$(xdotool getactivewindow)" | awk -F ":" '/Width/ {print $2}' | xargs)
+HEIGHT=$(xwininfo -id "$(xdotool getactivewindow)"| grep Height | tail -n 1 | cut -d ":" -f2| xargs)
 if [[ -d "$1" ]];
 then
-    OLD_PWD=`pwd`
-    cd "$1"
+    OLD_PWD=$(pwd)
+    cd "$1" || exit
 
 fi
-ACTUAL_PWD=`pwd`
-USER=`whoami`
+ACTUAL_PWD=$(pwd)
+USER=$(whoami)
 NEW_PROMPT=${ACTUAL_PWD/\/home\/$USER/'~'}
 if [[ $HEIGHT -le 600 && $WIDTH -le 1200 ]];
 then  
-  res=`fd -H | fzf -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --color "$FZF_COLORS"`
+    res=$(fd -I -E "$IGNORE" -H | fzf -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --color "$FZF_COLORS")
 elif [[ $WIDTH -le 1200 ]]; 
 then
-  res=`fd -H | fzf -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --preview-window=bottom:50% --preview='fzfpreview {} $FZF_PREVIEW_LINES $FZF_PREVIEW_COLUMNS "fzfpreview"' --color "$FZF_COLORS"`
+    res=$(fd -I -E "$IGNORE" -H | fzf -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --preview-window=bottom:50% --preview="fzfpreview {} $FZF_PREVIEW_LINES $FZF_PREVIEW_COLUMNS 'fzfpreview'" --color "$FZF_COLORS")
 else
-  res=`fd -H | fzf -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --preview='fzfpreview {} $FZF_PREVIEW_LINES $FZF_PREVIEW_COLUMNS "fzfpreview"' --color "$FZF_COLORS"`
+    res=$(fd -I -E "$IGNORE" -H | fzf -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --preview="fzfpreview {} $FZF_PREVIEW_LINES $FZF_PREVIEW_COLUMNS 'fzfpreview'" --color "$FZF_COLORS")
 fi
 
 
 if [[ -d "$res" ]]; 
 then   
     echo "$res"
-    cd "$res"
+    cd "$res" || exit
 elif [[ "$res" =~ .($FILE_EXT)$ ]];
 then
-    xdg-open "$res" &> /dev/null &disown 
+    xdg-open "$res" &> /dev/null & disown
 elif [[ "$res" =~ .($DOCS_EXT)$ ]];
 then
-    zaread $res&disown
+    zaread "$res"&disown
 elif [[ "$res" =~ .($IMG_EXT)$ ]];
 then
+  res="./${res}"
   dir="${res%*/*}"
-  dirs=$(ls "$dir" | grep -P ".($IMG_EXT)" | sort)
+  dirs=$(ls $dir | grep -P ".($IMG_EXT)" | sort)
   f=$(echo "${res/$dir}" | cut -c 2-)
-  index=$(echo ${dirs/$f//} | awk '/\// {print FNR}')
-  sxiv ${res%/*}/. -n "$index"&disown
+  index=$(echo "${dirs/$f//}" | awk '/\// {print FNR}')
+  sxiv "${res%/*}" -n "$index"&disown
 elif [[ -f "$res" ]];
 then
     vim "$res"
 else
-    cd $OLD_PWD
+    cd "$OLD_PWD" || exit
 fi
 
