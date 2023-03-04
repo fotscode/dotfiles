@@ -6,7 +6,7 @@ then
   if [[ "${file##*.}" == "pdf" ]];
   then
     pdftotext "$1" -
-  elif [[ $(grep -rIL '' "$1" | wc -l) == 1 ]];
+  elif [ $(grep -rIL '' "$1" | wc -l) == 1 ] || [ "${file##*.}" == "svg" ];
   then 
     exiftool "$fullpath"
   else

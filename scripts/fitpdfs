@@ -1,0 +1,75 @@
+#!/bin/bash
+if [[ $# -eq 0 ]]; 
+then
+    echo "Usage: $0 -f \"<file1> <file2>\" ..."
+    exit 1
+fi
+
+output="output.pdf"
+width=720
+height=891
+flag=0
+files=""
+quality="screen"
+while getopts ":ho:f:x:y:q:" opt; do
+    case $opt in
+        h)
+            echo "Usage: $0 -f \"<file1> <file2>\" ..."
+            echo "Options:"
+            echo "-o <output_file> - output file name (default output.pdf)"
+            echo "-x <width> - width of the output pdf (default 720)"
+            echo "-y <height> - height of the output pdf (default 891)"
+            echo "-q <quality> - quality of pdf (default low) [low, medium, high]"
+            exit 0
+            ;;
+        \?)
+            echo "Invalid option: -$OPTARG" >&2
+            exit 1
+            ;;
+        o)
+            output="$OPTARG"
+            ;;
+        f)
+            flag=1
+            files=("$OPTARG")
+            until [[ $(eval "echo \${$OPTIND}") =~ ^-.* ]] || [ -z $(eval "echo \${$OPTIND}") ]; do
+                files+=($(eval "echo \${$OPTIND}"))
+                OPTIND=$((OPTIND + 1))
+            done
+            ;;
+        x)
+            width=$OPTARG
+            ;;
+        y)
+            height=$OPTARG
+            ;;
+        q)
+            echo "Quality: $OPTARG"
+            case $OPTARG in
+                low)
+                    quality="screen"
+                    ;;
+                medium)
+                    quality="ebook"
+                    ;;
+                high)
+                    quality="printer"
+                    ;;
+                *)
+                    echo "Invalid quality: $OPTARG" >&2
+                    exit 1
+                    ;;
+            esac
+            echo "Quality: $quality"
+            ;;
+    esac
+done
+if [[ $flag -eq 0 ]]; 
+then
+    echo "Usage: $0 -f \"<file1> <file2>\" ..."
+    exit 1
+fi
+gs -o "$output" -sDEVICE=pdfwrite -dFIXEDMEDIA -dPDFFitPage \
+    -dDEVICEWIDTHPOINTS="$width" -dDEVICEHEIGHTPOINTS="$height" \
+    -dNOPAUSE -dCompatibilityLevel=1.4 -dPDFSETTINGS=/"$quality" \
+    -dQUIET -dBATCH -dSAFER "${files[@]}"

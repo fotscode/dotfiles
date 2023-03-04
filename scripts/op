@@ -1,5 +1,5 @@
 #!/bin/bash
-FILE_EXT="pdf|mkv|mp4|mp3|epub|opus|m4a|odf|xlsx|xls|ods"
+FILE_EXT="pdf|mkv|mp4|mp3|epub|opus|m4a|odf|xlsx|xls|ods|djvu"
 DOCS_EXT="pptx|ppt|docx|doc|odp"
 IMG_EXT="jpeg|jpg|png|gif|webp"
 FZF_COLORS="bg:#282C34,bg+:#2e3139,hl:#707070,prompt:#c678dd,fg+:#abb2bf,fg:#abb2bf,pointer:#c678dd,hl+:#c678dd,info:#e5c07b,border:#c678dd,spinner:#61afef"
@@ -18,12 +18,12 @@ USER=$(whoami)
 NEW_PROMPT=${ACTUAL_PWD/\/home\/$USER/'~'}
 if [[ $HEIGHT -le 600 && $WIDTH -le 1200 ]];
 then  
-    res=$(fd -I -E "$IGNORE" -H | fzf -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --color "$FZF_COLORS")
+    res=$(fd -I -E "$IGNORE" -H | fzf --algo=v1 -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --color "$FZF_COLORS")
 elif [[ $WIDTH -le 1200 ]]; 
 then
-    res=$(fd -I -E "$IGNORE" -H | fzf -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --preview-window=bottom:50% --preview="fzfpreview {} $FZF_PREVIEW_LINES $FZF_PREVIEW_COLUMNS 'fzfpreview'" --color "$FZF_COLORS")
+    res=$(fd -I -E "$IGNORE" -H | fzf --algo=v1 -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --preview-window=bottom:50% --preview="fzfpreview {} $FZF_PREVIEW_LINES $FZF_PREVIEW_COLUMNS 'fzfpreview'" --color "$FZF_COLORS")
 else
-    res=$(fd -I -E "$IGNORE" -H | fzf -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --preview="fzfpreview {} $FZF_PREVIEW_LINES $FZF_PREVIEW_COLUMNS 'fzfpreview'" --color "$FZF_COLORS")
+    res=$(fd -I -E "$IGNORE" -H | fzf --algo=v1 -i --prompt="$NEW_PROMPT/" --info=inline --reverse --border --preview="fzfpreview {} $FZF_PREVIEW_LINES $FZF_PREVIEW_COLUMNS 'fzfpreview'" --color "$FZF_COLORS")
 fi
 
 
