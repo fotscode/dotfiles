@@ -55,3 +55,6 @@ alias op=". op"
 alias wpm="vim /mnt/backupfiles/wpm.txt"
 
 alias lyrics="sptlrx --current 'bold,#c678dd,#282c34' --before '#61afef,faint,italic' --after '#61afef,faint'"
+
+#alias exp_all="export $(grep -v '^#' .env | xargs)"
+alias exp_all="set -o allexport; source .env; set +o allexport"
