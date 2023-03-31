@@ -47,16 +47,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "java" },
-    callback = function()
-        vim.cmd [[
-      set shiftwidth=4
-    ]]
-    end,
-})
-
-vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "typescript","vue" },
+    pattern = { "typescript","vue", "c" },
     callback = function()
         vim.cmd [[
       set shiftwidth=2

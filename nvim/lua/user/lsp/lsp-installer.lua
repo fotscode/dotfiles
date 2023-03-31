@@ -11,7 +11,8 @@ local servers = {
     "vuels",
     "marksman",
     "lemminx",
-    "texlab"
+    "texlab",
+    "clangd"
 }
 
 lsp_installer.setup()
