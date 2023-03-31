@@ -52,7 +52,7 @@
 "/home/fots/.local/bin/flameopen"
   Control+Print
 
-"rofi -combi-modi window,drun -show combi"
+"rofi -combi-modi window,drun -show combi -show-icons"
   Menu
 
 "xvkbd -xsendevent -text '\C\[Page_Up]'"
@@ -116,13 +116,6 @@
 
 "xvkbd -xsendevent -text '\[End]'"
   Control+Mod1+L
-
-"xvkbd -xsendevent -text '\S\[Home]'"
-  Control+Mod1+Shift+H
-
-"xvkbd -xsendevent -text '\S\[End]'"
-  Control+Mod1+Shift+L
-
 
 #"xterm -geom 50x20+20+20"
 #   Shift+Mod2+alt + s
