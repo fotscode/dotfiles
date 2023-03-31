@@ -58,3 +58,9 @@ alias lyrics="sptlrx --current 'bold,#c678dd,#282c34' --before '#61afef,faint,it
 
 #alias exp_all="export $(grep -v '^#' .env | xargs)"
 alias exp_all="set -o allexport; source .env; set +o allexport"
+
+# wikiman as man
+alias man="wikiman"
+
+# ssh backspace
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
