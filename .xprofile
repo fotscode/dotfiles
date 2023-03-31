@@ -22,7 +22,7 @@ xset r rate 210 40
 # Environment variables set everywhere
 export EDITOR="nvim"
 export TERMINAL="kitty"
-export BROWSER="firefox"
+export BROWSER="brave"
 export SHELL="zsh"
 
 ## XDG Paths

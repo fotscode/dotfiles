@@ -77,6 +77,12 @@
     timeout = 30
     #default_icon = /path/to/icon
 
-# [ignore]
-# appname = "Brave"
-# skip_display = true
+[brave]
+appname = Brave
+skip_display = true
+
+[limit]
+appname = Brave
+summary = *Limit*
+skip_display = false
+
