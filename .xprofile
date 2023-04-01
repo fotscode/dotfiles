@@ -1,6 +1,3 @@
-# GTK Theme
-export GTK_THEME=Adwaita:dark
-
 # Noisetorch
 noisetorch -i alsa_input.usb-Kingston_Technology_Company_HyperX_Cloud_Flight_Wireless-00.mono-fallback
 

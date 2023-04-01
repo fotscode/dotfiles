@@ -38,7 +38,6 @@ copilot.setup{
     cvs = false,
     ["."] = false,
   },
-  copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v17.5.0/bin/node", -- Node version must be < 18
   plugin_manager_path = vim.fn.stdpath("data") .. "/site/pack/packer",
   server_opts_overrides = {},
 }

@@ -242,7 +242,7 @@ mode "$mode_gaps_outer" {
 # on startup
 exec_always "alttab -pk Left -nk Right -d 1"
 exec "i3-msg workspace 2"
-exec "spotify"
+exec "spotify-launcher"
 exec "/home/fots/.local/share/google-calendar/google-calendar"
 exec --no-startup-id "/usr/bin/thunderbird"
 exec "sleek"
@@ -261,7 +261,7 @@ bindsym $mod+e exec "~/.config/scripts/float_focus_i3.sh"
 bindsym $mod+t exec "kitty btop"
 bindsym $mod+Return exec kitty
 bindsym $mod+p exec --no-startup-id "rofi -combi-modi window,drun -show combi -show-icons"
-bindsym $mod+o exec onboard
+bindsym $mod+o exec "onboard -t Nightshade"
 bindsym $mod+d exec rnote
 bindsym Print exec flameshot gui
 

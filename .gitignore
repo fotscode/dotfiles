@@ -32,7 +32,7 @@ menus/*
 pacmixer/*
 pavucontrol.ini
 btop/*
-calendariodegoogleaccedeatucuentaparavisualizaryeditartuagenda-nativefier-f03e0c/*
+Google\ Calendar/*
 calculatorsuite-geogebra-nativefier-a3f6c8/*
 noisetorch/*
 blender/*
@@ -83,3 +83,6 @@ zoom.conf
 krita*
 konsole*
 kminesrc
+user-dirs.dirs
+user-dirs.locale
+balena-etcher/*
