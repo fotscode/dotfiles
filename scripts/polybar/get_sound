@@ -1,0 +1,12 @@
+#!/bin/sh
+volume="$(amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | sed 's/.$//')"
+
+if [ "$volume" = "off" ]; then
+    echo " muted"
+elif [ "$volume" -gt 0 ] && [ "$volume" -le 33 ]; then
+    echo " $volume%"
+elif [ "$volume" -gt 33 ] && [ "$volume" -le 66 ]; then
+    echo " $volume%"
+elif [ "$volume" -gt 66 ] && [ "$volume" -le 100 ]; then
+    echo " $volume%"
+fi

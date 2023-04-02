@@ -13,13 +13,13 @@ if [[ $1 =~ ^[0-9]+$ ]]; then
         ((h=${seconds}/3600))
         ((m=(${seconds}%3600)/60))
         ((s=${seconds}%60))
-        printf " \r%02d:%02d:%02d\n" $h $m $s > "$HOME/.config/scripts/timer_with_notif.txt"
+        printf " \r%02d:%02d:%02d\n" $h $m $s > "$HOME/.config/scripts/global/timer_with_notif.txt"
         sleep 1
         : $((seconds--))
     done
     # suspend the system
-    printf "Finished\n" > "$HOME/.config/scripts/timer_with_notif.txt"
-    notify-send "Timer finished" --icon "$HOME/Pictures/art/vanitas_still_life.jpg" 
+    printf "Finished\n" > "$HOME/.config/scripts/global/timer_with_notif.txt"
+    notify-send "Timer finished"
 else
     echo "Usage: timer_with_notif.sh <seconds>"
 fi

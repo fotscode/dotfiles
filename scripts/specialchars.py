@@ -39,11 +39,14 @@ css_data = """
 }
 """
 
-fpath = os.environ["HOME"] + "/.specialchars"
+fpath = os.environ["HOME"] + "/.local/share/specialchars"
 
 def create_dirs():
     try:
-        os.mkdir(fpath)
+        if not os.path.exists(fpath): 
+            os.mkdir(fpath)
+        file=os.path.join(fpath, "charfamily_1")
+        open(file, "wt").write("special\nñ\ná\né\ní\nó\nú\n.com\n")
     except FileExistsError:
         pass
 

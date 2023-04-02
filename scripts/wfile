@@ -1,3 +1,0 @@
-#!/bin/bash
-[[ $# -ne 1 ]] && echo "Usage: wfile <file>" && exit 1
-ls "$1" | entr -c glow "$1"
