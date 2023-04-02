@@ -138,11 +138,11 @@ return packer.startup(function(use)
 	--use 'github/copilot.vim' -- used lua version
 	use({
 		"zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-		event = "VimEnter",
-		config = function()
-			require("copilot").setup({})
-		end,
+		--cmd = "Copilot",
+		--event = "VimEnter",
+		--config = function()
+		--	require("copilot").setup({})
+		--end,
 	})
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
