@@ -1,9 +1,9 @@
 #!/bin/bash
 filename=$(basename -- "$0")
-arr=("$(ls $XDG_CONFIG_HOME/scripts/global | grep -v ".txt$")")
-[[ -d "$XDG_CONFIG_HOME/.local/bin" ]] || mkdir -p "$XDG_CONFIG_HOME/.local/bin"
+arr=("$(ls $HOME/.config/scripts/global | grep -v ".txt$")")
+[[ -d "$HOME/.local/bin" ]] || mkdir -p "$HOME/.local/bin"
 for i in $arr
 do 
-  ln -s "$XDG_CONFIG_HOME/scripts/global/$i" "$XDG_CONFIG_HOME/.local/bin/$i"
+  ln -s "$HOME/.config/scripts/global/$i" "$HOME/.local/bin/$i"
 done
 
