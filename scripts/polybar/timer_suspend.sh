@@ -13,13 +13,13 @@ if [[ $1 =~ ^[0-9]+$ ]]; then
         ((h=${seconds}/3600))
         ((m=(${seconds}%3600)/60))
         ((s=${seconds}%60))
-        printf " \r%02d:%02d:%02d\n" $h $m $s > "$HOME/.config/scripts/timer_suspend.txt"
+        printf " \r%02d:%02d:%02d\n" $h $m $s > "$HOME/.config/scripts/polybar/timer_suspend.txt"
         sleep 1
         : $((seconds--))
     done
     # suspend the system
-    printf "Suspending\n" > "$HOME/.config/scripts/timer_suspend.txt"
-    i3lock-fancy-dualmonitor -gf DejaVu-Sans && systemctl suspend 
+    printf "Suspending\n" > "$HOME/.config/scripts/polybar/timer_suspend.txt"
+    ~/.config/scripts/polybar/i3lock.sh && systemctl suspend 
 else
-    echo "Usage: timer_suspend.sh <minutes>"
+    echo "Usage: timer_suspend.sh <seconds>"
 fi

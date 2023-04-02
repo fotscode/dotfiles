@@ -87,3 +87,5 @@ user-dirs.dirs
 user-dirs.locale
 balena-etcher/*
 totem/*
+scripts/polybar/timer_suspend.txt
+scripts/global/timer_with_notif.txt
