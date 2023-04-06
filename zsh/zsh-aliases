@@ -39,7 +39,7 @@ alias i="sxiv"
 
 alias z="zathura"
 
-alias zaread="~/Public/zaread/zaread.sh"
+alias zaread="~/.config/scripts/zaread.sh"
 
 alias bc="bc ~/.config/bc/bclib -l -q"
 
