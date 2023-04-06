@@ -243,16 +243,15 @@ mode "$mode_gaps_outer" {
 exec_always "alttab -pk Left -nk Right -d 1"
 exec "i3-msg workspace 2"
 exec "spotify-launcher"
-exec "/home/fots/.local/share/google-calendar/google-calendar"
+exec "/home/fots/.local/share/GoogleCalendar-linux-x64/GoogleCalendar"
 exec --no-startup-id "/usr/bin/thunderbird"
 exec "sleek"
 exec "redshift -l -34.6037:-58.3816"
 
 for_window [class="sleek"] move scratchpad
 for_window [class="thunderbird"] move container to workspace number 9
-assign [class="thunderbird"] $ws9
 for_window [class="Spotify"] move container to workspace number 8
-for_window [class="calendariodegoogleaccedeatucuentaparavisualizaryeditartuagenda-nativefier-f03e0c"] move container to workspace number 9
+for_window [class="Google Calendar"] move container to workspace number 9
 
 # user bindings
 bindsym $mod+f exec brave
