@@ -92,8 +92,13 @@ return packer.startup(function(use)
 
 	-- LSP
 	use("neovim/nvim-lspconfig") -- enable LSP
-	use("williamboman/nvim-lsp-installer") -- simple to use language server installer
-	use("tamago324/nlsp-settings.nvim") -- language server settings defined in json for
+	--use("williamboman/nvim-lsp-installer") -- simple to use language server installer
+	use("williamboman/mason-lspconfig") -- enable LSP
+	use({
+		"williamboman/mason.nvim",
+		run = ":MasonUpdate", -- :MasonUpdate updates registry contents
+	})
+	--use("tamago324/lsp-settings.nvim") -- language server settings defined in json for
 	use("ray-x/lsp_signature.nvim") -- show function signature
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use({ "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" })
@@ -126,6 +131,9 @@ return packer.startup(function(use)
 
 	-- jinja formatting
 	use("Glench/Vim-Jinja2-Syntax")
+
+	-- csv highlighting
+	use("mechatroner/rainbow_csv")
 
 	-- java
 	use({ "mfussenegger/nvim-jdtls", commit = "3a148dac526396678f141a033270961d0d9ccb88" })
