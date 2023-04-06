@@ -36,24 +36,10 @@
 #keystate_capslock = enable
 #keystate_scrolllock= enable
 
-# Examples of commands:
+# xbindkeys --key para ver los codigos de las teclas
 
-"xbindkeys_show" 
-  control+shift + q
-
-# set directly keycode (here control + f with my keyboard)
-#"xterm"
-#  c:41 + m:0x4
-#
-## specify a mouse button
-#"xterm"
-#  control + b:2
-
-"/home/fots/.local/bin/flameopen"
+"$HOME/.local/bin/flameopen"
   Control+Print
-
-"rofi -combi-modi window,drun -show combi -show-icons"
-  Menu
 
 "xvkbd -xsendevent -text '\C\[Page_Up]'"
   Control+Mod1+K
@@ -61,76 +47,23 @@
 "xvkbd -xsendevent -text '\C\[Page_Down]'"
   Control+Mod1+J
 
-"xvkbd -xsendevent -text '\[Page_Up]'"
-  Mod1+K
-
-"xvkbd -xsendevent -text '\[Page_Down]'"
-  Mod1+J
-
-"xvkbd -xsendevent -text '\A\[Left]'"
-  Mod1+P
-
-"xvkbd -xsendevent -text '\A\[Right]'"
-  Mod1+N
-
-# arrow keys to super alt hjkl
-"xvkbd -xsendevent -text '\[Up]'"
-  Mod4+Mod1+K
-
-"xvkbd -xsendevent -text '\[Down]'"
-  Mod4+Mod1+J
-
-"xvkbd -xsendevent -text '\[Left]'"
-  Mod4+Mod1+H
-
-"xvkbd -xsendevent -text '\[Right]'"
-  Mod4+Mod1+L
-
-"xvkbd -xsendevent -text '\C\[Up]'"
-  Control+Mod4+Mod1+K
-
-"xvkbd -xsendevent -text '\C\[Down]'"
-  Control+Mod4+Mod1+J
-
-"xvkbd -xsendevent -text '\C\[Left]'"
-  Control+Mod4+Mod1+H
-
-"xvkbd -xsendevent -text '\C\[Right]'"
-  Control+Mod4+Mod1+L
-
-"xvkbd -xsendevent -text '\C\S\[Up]'"
-  Control+Shift+Mod4+Mod1+K
-
-"xvkbd -xsendevent -text '\C\S\[Down]'"
-  Control+Shift+Mod4+Mod1+J
-
-"xvkbd -xsendevent -text '\C\S\[Left]'"
-  Control+Shift+Mod4+Mod1+H
-
-"xvkbd -xsendevent -text '\C\S\[Right]'"
-  Control+Shift+Mod4+Mod1+L
-
-# home and end keybinds
-"xvkbd -xsendevent -text '\[Home]'"
+"xvkbd -xsendevent -text '\C\[Home]'"
   Control+Mod1+H
 
-"xvkbd -xsendevent -text '\[End]'"
+"xvkbd -xsendevent -text '\C\[End]'"
   Control+Mod1+L
 
-#"xterm -geom 50x20+20+20"
-#   Shift+Mod2+alt + s
-#
-## set directly keycode (here control+alt+mod2 + f with my keyboard)
-#"xterm"
-#  alt + c:0x29 + m:4 + mod2
-#
-## Control+Shift+a  release event starts rxvt
-#"rxvt"
-#  release+control+shift + a
-#
-## Control + mouse button 2 release event starts rxvt
-#"rxvt"
-#  Control + b:2 + Release
+"xvkbd -xsendevent -text '\[Left]'"
+  Control + c:108 # alt_r
+
+"xvkbd -xsendevent -text '\[Right]'"
+  Control + c:105 # ctrl_r
+
+"xvkbd -xsendevent -text '\[Up]'"
+  Control + c:61 # /
+
+"xvkbd -xsendevent -text '\[Down]'"
+  Control + c:135 # menu
 
 ##################################
 # End of xbindkeys configuration #
