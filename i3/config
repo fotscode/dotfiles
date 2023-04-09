@@ -243,7 +243,7 @@ mode "$mode_gaps_outer" {
 exec_always "alttab -pk Left -nk Right -d 1"
 exec "i3-msg workspace 2"
 exec "spotify-launcher"
-exec "/home/fots/.local/share/GoogleCalendar-linux-x64/GoogleCalendar"
+exec "~/.local/share/GoogleCalendar-linux-x64/GoogleCalendar"
 exec --no-startup-id "/usr/bin/thunderbird"
 exec "sleek"
 exec "redshift -l -34.6037:-58.3816"
@@ -271,9 +271,9 @@ bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name for this
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioRaiseVolume exec --no-startup-id "/home/fots/.local/bin/changevolume up" 
-bindsym XF86AudioLowerVolume exec --no-startup-id "/home/fots/.local/bin/changevolume down" 
-bindsym XF86AudioMute exec --no-startup-id "/home/fots/.local/bin/changevolume mute" 
+bindsym XF86AudioRaiseVolume exec --no-startup-id "~/.local/bin/changevolume up" 
+bindsym XF86AudioLowerVolume exec --no-startup-id "~/.local/bin/changevolume down" 
+bindsym XF86AudioMute exec --no-startup-id "~/.local/bin/changevolume mute" 
 
 # fibonacci like
 # start in opposite orientation from your monitor
