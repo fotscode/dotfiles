@@ -61,5 +61,7 @@ alias exp_all="set -o allexport; source .env; set +o allexport"
 
 alias tree="tree -C"
 
+alias diff="colordiff"
+
 # ssh backspace
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
