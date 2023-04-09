@@ -246,7 +246,7 @@ exec "spotify-launcher"
 exec "~/.local/share/GoogleCalendar-linux-x64/GoogleCalendar"
 exec --no-startup-id "/usr/bin/thunderbird"
 exec "sleek"
-exec "redshift -l -34.6037:-58.3816"
+exec "redshift"
 
 for_window [class="sleek"] move scratchpad
 for_window [class="thunderbird"] move container to workspace number 9
