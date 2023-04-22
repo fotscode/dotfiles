@@ -43,13 +43,14 @@ zsh_add_file "zsh-exports"
 zsh_add_file "zsh-vim-mode"
 zsh_add_file "zsh-aliases"
 zsh_add_file "zsh-prompt"
+# personal keys
+[ -f ~/.local/share/keys.sh ] && source ~/.local/share/keys.sh
 # Plugins
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
 
 # Key-bindings
-bindkey -s '^e' 'ranger^M'
 bindkey -s '^o' 'op^M'
 bindkey '^[[P' delete-char
 bindkey "^[[H" beginning-of-line
@@ -60,7 +61,6 @@ bindkey -r "^u"
 bindkey -r "^d"
 
 # FZF 
-# TODO update for mac
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
@@ -68,7 +68,6 @@ bindkey -r "^d"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f $ZDOTDIR/completion/_fnm ] && fpath+="$ZDOTDIR/completion/"
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh  # This loads NVM
-# export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 compinit
 
 # Edit line in vim with ctrl-e:
