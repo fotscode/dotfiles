@@ -23,7 +23,7 @@
     horizontal_padding = 14
     text_icon_padding = 20
     frame_width = 2
-    frame_color = "#e5c07b"
+    frame_color = "#61afef"
     separator_color = frame
     sort = yes
     font = Roboto Regular 10
@@ -49,7 +49,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 0
+    corner_radius = 10
     ignore_dbusclose = false
     force_xwayland = false
     force_xinerama = false
