@@ -91,3 +91,4 @@ scripts/polybar/timer_suspend.txt
 scripts/global/timer_with_notif.txt
 redshift/redshift.conf
 calibre/*
+nautilus/*
