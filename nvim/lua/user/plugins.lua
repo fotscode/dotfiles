@@ -146,15 +146,20 @@ return packer.startup(function(use)
 	--use 'github/copilot.vim' -- used lua version
 	use({
 		"zbirenbaum/copilot.lua",
-		--cmd = "Copilot",
-		--event = "VimEnter",
-		--config = function()
-		--	require("copilot").setup({})
-		--end,
 	})
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
 	end
+
+	-- chatgpt
+	-- use({
+	-- 	"jackMort/ChatGPT.nvim",
+	-- 	requires = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 	},
+	-- })
 
 	-- data generator and lab run
 	use({
