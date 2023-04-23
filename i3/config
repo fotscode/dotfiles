@@ -247,6 +247,8 @@ exec "~/.local/share/GoogleCalendar-linux-x64/GoogleCalendar"
 exec --no-startup-id "/usr/bin/thunderbird"
 exec "sleek"
 exec "redshift"
+exec --no-startup-id picom --config ~/.config/picom/picom.conf
+
 
 for_window [class="sleek"] move scratchpad
 for_window [class="thunderbird"] move container to workspace number 9
