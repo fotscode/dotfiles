@@ -1,0 +1,18 @@
+utilities:
+  keyboard:
+    name: onboard
+    command: dbus-send --type=method_call --dest=org.onboard.Onboard /org/onboard/Onboard/Keyboard org.onboard.Onboard.Keyboard.ToggleVisible 
+  redshift:
+    name: redshift
+    command: pkill -USR1 redshift
+    fill: GAMMAZ=$(xrandr --verbose | grep 'Gamma' | awk -F ':' '{print $4}' | tr -d ' ' | head -1); [[ $GAMMAZ != 1.0 ]] && echo "1"
+  rofi:
+    name: rofi
+    command: rofi -combi-modi window,drun -show combi -show-icons 
+  notification:
+    name: toggle notifications
+    command: dunstctl set-paused toggle
+    fill: $(dunstctl is-paused); echo "$?==0" | bc
+  kitty:
+    name: kitty
+    command: kitty&disown

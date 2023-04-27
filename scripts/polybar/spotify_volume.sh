@@ -10,6 +10,7 @@ artist="$(echo "$res"| sed -n "/artist/{n;n;p}" | cut -d '"' -f2)"
 album="$(echo "$res" | sed -n "/album/{n;p}" | cut -d '"' -f2 | head -1)"
 icon="$(echo "$res"  | sed -n "/artUrl/{n;p}" | cut -d '"' -f2)"
 
+echo $icon | cut -d "/" -f5
 # checks if the image is older than 5 seconds
 seconds=0
 [[ -f /tmp/spotify.png ]] && seconds=$(exiftool /tmp/spotify.png | grep "File Modification" | cut -d ":" -f5-6 | cut -d "-" -f1 | tr ":" ".")
@@ -23,10 +24,10 @@ fi
 case $1 in
 up)
     pactl set-sink-input-volume "$spotify" +${step}%
-    dunstify -u low -t 2000 -r 9993 -i /tmp/spotify.png "$title" "$artist - $album" -h int:value:"$(pactl list sink-inputs | grep -A 15 "Sink Input #${spotify}" | grep "Volume:" | cut -d "/" -f2 | cut -d "%" -f1 | tail -1 | sed "s/\W//g")"
     ;;
 down)
     pactl set-sink-input-volume "$spotify" -${step}%
-    dunstify -u low -t 2000 -r 9993 -i /tmp/spotify.png "$title" "$artist - $album" -h int:value:"$(pactl list sink-inputs | grep -A 15 "Sink Input #${spotify}" | grep "Volume:" | cut -d "/" -f2 | cut -d "%" -f1 | tail -1 | sed "s/\W//g")"
     ;;
 esac
+dunstify -u low -t 2000 -r 9993 -i /tmp/spotify.png "$title" "$artist - $album" -h int:value:"$(pactl list sink-inputs | grep -A 15 "Sink Input #${spotify}" | grep "Volume:" | cut -d "/" -f2 | cut -d "%" -f1 | tail -1 | sed "s/\W//g")" -r 12345
+sleep 2 && dunstctl history-rm 12345
