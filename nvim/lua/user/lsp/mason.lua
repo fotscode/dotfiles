@@ -18,7 +18,8 @@ local servers = {
     "marksman",
     "lemminx",
     "texlab",
-    "clangd"
+    "clangd",
+    "arduino_language_server",
 }
 
 local settings = {
@@ -76,6 +77,11 @@ for _, server in pairs(servers) do
     if server=="texlab" then
         local texlab_opts = require "user.lsp.settings.texlab"
         opts = vim.tbl_deep_extend("force", texlab_opts, opts)
+    end
+
+    if server == "arduino_language_server" then
+        local arduino_opts = require "user.lsp.settings.arduino"
+        opts = vim.tbl_deep_extend("force", arduino_opts, opts)
     end
 
     if server == "jdtls" then goto continue end
