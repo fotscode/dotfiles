@@ -2,7 +2,7 @@
 
 function send_notification() {
 	volume=$(pamixer --get-volume)
-	dunstify -a "changevolume" -u low -r "9993" -h int:value:"$volume" -i "$HOME/.config/scripts/icons/volume.png" "Volume: ${volume}%" -t 2000 -r 12345
+	dunstify -a "changevolume" -u low  -h int:value:"$volume" -i "$HOME/.config/scripts/icons/volume.png" "Volume: ${volume}%" -t 2000 -r 12345
     sleep 3 && dunstctl history-rm 12345
 }
 
@@ -21,7 +21,9 @@ down)
 mute)
 	pamixer -t
 	if $(pamixer --get-mute); then
-		dunstify -i volume-mute -a "changevolume" -t 2000 -r 9993 -u low "Muted"
+	    volume=$(pamixer --get-volume)
+		dunstify -i volume-mute -a "changevolume" -t 2000 -r 12345 -u low "Muted" -h int:value:"$volume"
+        sleep 3 && dunstctl history-rm 12345
 	else
 		send_notification up
 	fi
