@@ -16,3 +16,6 @@ utilities:
   kitty:
     name: kitty
     command: kitty&disown
+  scratchpad:
+    name: scratchpad
+    command: i3-msg "[instance=sleek] scratchpad show"
