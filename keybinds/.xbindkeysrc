@@ -65,6 +65,11 @@
 "xvkbd -xsendevent -text '\[Down]'"
   Control + c:135 # menu
 
+# Disable Mouse Buttons
+""
+    m:0x0 + b:8 
+""
+    m:0x0 + b:9
 ##################################
 # End of xbindkeys configuration #
 ##################################
