@@ -47,8 +47,8 @@ return packer.startup(function(use)
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("numToStr/Comment.nvim") -- Easily comment stuff
 	use("folke/todo-comments.nvim") -- todo comments
-	use("kyazdani42/nvim-web-devicons") -- icons
-	use("kyazdani42/nvim-tree.lua") -- tree
+	use("nvim-tree/nvim-web-devicons") -- icons
+	use("nvim-tree/nvim-tree.lua") -- tree
 	use("akinsho/bufferline.nvim") -- buffers
 	use("moll/vim-bbye") -- close buffers without messing up
 	use("nvim-lualine/lualine.nvim") -- bottom line w/ info

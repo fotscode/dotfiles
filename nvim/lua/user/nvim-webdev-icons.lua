@@ -17,13 +17,13 @@ nvim_web_devicons.set_icon {
     name = "Py",
   },
   -- ["js"] = {
-  --   icon = "",
+  --   icon = "󰌞",
   --   color = "#cbcb41",
   --   cterm_color = "185",
   --   name = "Js",
   -- },
   -- ["ts"] = {
-  --   icon = "ﯤ",
+  --   icon = "󰛦",
   --   color = "#519aba",
   --   cterm_color = "67",
   --   name = "Ts",

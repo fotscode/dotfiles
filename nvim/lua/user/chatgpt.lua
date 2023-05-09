@@ -20,7 +20,7 @@ chatgpt.setup {
     --welcome_message = WELCOME_MESSAGE,
     loading_text = "Loading, please wait ...",
     question_sign = "", -- 🙂
-    answer_sign = "ﮧ", -- 🤖
+    answer_sign = "󰚩", -- 🤖
     max_line_length = 120,
     sessions_window = {
       border = {

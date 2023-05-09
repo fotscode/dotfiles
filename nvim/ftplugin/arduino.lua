@@ -15,9 +15,10 @@ local opts = {
 local mappings = {
     A = {
         name = "Arduino",
-        c = { "<Cmd>!arduino-cli compile --fqbn esp32:esp32:esp32 ../%:r<CR>", "Compile" },
-        u = { "<Cmd>!arduino-cli upload -p /dev/ttyUSB0 --fqbn esp32:esp32:esp32 ../%:r<CR>", "Upload" },
+        c = { "<Cmd>terminal arduino-cli compile --fqbn esp32:esp32:esp32 %:h<CR>", "Compile" },
+        u = { "<Cmd>terminal arduino-cli upload -p /dev/ttyUSB0 --fqbn esp32:esp32:esp32 %:h<CR>", "Upload" },
         m = { "<Cmd>terminal arduino-cli monitor -p /dev/ttyUSB0 -c baudrate=$(cat % | grep 'Serial.begin' | sed 's/[^0-9]*//g')<CR>i", "Monitor" },
+        f = { "<Cmd>terminal arduino-cli compile --fqbn esp32:esp32:esp32 %:h && arduino-cli upload -p /dev/ttyUSB0 --fqbn esp32:esp32:esp32 %:h && arduino-cli monitor -p /dev/ttyUSB0 -c baudrate=$(cat % | grep 'Serial.begin' | sed 's/[^0-9]*//g')<CR>i", "Compile, Upload and Monitor" },
     },
 }
 

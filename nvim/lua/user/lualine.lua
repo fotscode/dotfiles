@@ -264,7 +264,7 @@ local current_signature = {
         local hint = sig.hint
 
         if not require("user.functions").isempty(hint) then
-            -- return "%#SLSeparator#│ : " .. hint .. "%*"
+            -- return "%#SLSeparator#│ 󰊕: " .. hint .. "%*"
             -- return "%#SLSeparator#│ " .. hint .. "%*"
             return "%#SLSeparator# " .. hint .. "%*"
         end
@@ -315,7 +315,7 @@ local spaces = {
         end
 
         -- TODO: update codicons and use their indent
-        return hl_str(" ", "SLSep") .. hl_str(" " .. shiftwidth .. space, "SLIndent") .. hl_str("", "SLSep")
+        return hl_str(" ", "SLSep") .. hl_str("󰌒 " .. shiftwidth .. space, "SLIndent") .. hl_str("", "SLSep")
     end,
     padding = 0,
     -- separator = "%#SLSeparator#" .. " │" .. "%*",
