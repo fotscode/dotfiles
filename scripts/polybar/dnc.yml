@@ -2,20 +2,26 @@ utilities:
   keyboard:
     name: onboard
     command: dbus-send --type=method_call --dest=org.onboard.Onboard /org/onboard/Onboard/Keyboard org.onboard.Onboard.Keyboard.ToggleVisible 
+    icon: ⌨
   redshift:
     name: redshift
     command: pkill -USR1 redshift
     fill: GAMMAZ=$(xrandr --verbose | grep 'Gamma' | awk -F ':' '{print $4}' | tr -d ' ' | head -1); [[ $GAMMAZ != 1.0 ]] && echo "1"
+    icon: 🌇
   rofi:
     name: rofi
     command: rofi -combi-modi window,drun -show combi -show-icons 
+    icon: 
   notification:
-    name: toggle notifications
+    name: notifications
     command: dunstctl set-paused toggle
     fill: $(dunstctl is-paused); echo "$?==0" | bc
+    icon: 󰍧
   kitty:
     name: kitty
     command: kitty&disown
+    icon: 
   scratchpad:
     name: scratchpad
     command: i3-msg "[instance=sleek] scratchpad show"
+    icon: 

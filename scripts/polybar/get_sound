@@ -1,9 +1,9 @@
 #!/bin/sh
-volume="$(amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | sed 's/.$//')"
+volume=$(pamixer --get-volume-human | head -c 2)
 
-if [ "$volume" = "off" ]; then
+if [[ "$volume" = "muted" ]]; then
     echo " muted"
-elif [ "$volume" -gt 0 ] && [ "$volume" -le 33 ]; then
+elif [ "$volume" -gt 0 ] &&  [ "$volume" -le 33 ]; then
     echo " $volume%"
 elif [ "$volume" -gt 33 ] && [ "$volume" -le 66 ]; then
     echo " $volume%"

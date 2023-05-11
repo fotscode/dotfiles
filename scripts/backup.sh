@@ -5,7 +5,7 @@
 DATE=$(date +%Y-%m-%d)
 
 # set the backup directory
-BACKUPDIR=/mnt/backupfiles
+BACKUPDIR=/media/backupfiles
 
 # set the source directory
 SOURCEDIR="pictures/ documents/ videos/"
