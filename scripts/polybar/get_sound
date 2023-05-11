@@ -1,7 +1,9 @@
 #!/bin/sh
-volume=$(pamixer --get-volume-human | head -c 2)
+state=$(pamixer --get-volume-human)
+volume=$(echo $state | head -c 2)
 
-if [[ "$volume" = "muted" ]]; then
+
+if [[ "$state" == "muted" ]]; then
     echo " muted"
 elif [ "$volume" -gt 0 ] &&  [ "$volume" -le 33 ]; then
     echo " $volume%"
