@@ -1,6 +1,8 @@
 #!/bin/bash
 [[ $# -ne 1 ]] && echo "Usage: $0 (up/down)" && exit 1
-spotify=$(pacmd list-sink-inputs | grep Spotify -B 18 | grep index | tail -1 | cut -d ":" -f2 | sed 's/[[:space:]]*//g')
+spotify_res=$(pacmd list-sink-inputs | grep Spotify -B 18)
+spotify=$(echo "$spotify_res" | grep index | tail -1 | cut -d ":" -f2 | sed 's/[[:space:]]*//g')
+spotify_volume=$(echo "$spotify_res" | grep RUNNING -A 2 | grep volume | cut -d "/" -f2 | xargs | head -c 2)
 step=5
 
 # gets the metadata
@@ -24,10 +26,13 @@ fi
 case $1 in
 up)
     pactl set-sink-input-volume "$spotify" +${step}%
+    spotify_volume=$(echo "$spotify_volume+$step" | bc)
     ;;
 down)
     pactl set-sink-input-volume "$spotify" -${step}%
+    spotify_volume=$(echo "$spotify_volume-$step" | bc)
     ;;
 esac
-dunstify -u low -t 2000 -r 9993 -i /tmp/spotify.png "$title" "$artist - $album" -h int:value:"$(pactl list sink-inputs | grep -A 15 "Sink Input #${spotify}" | grep "Volume:" | cut -d "/" -f2 | cut -d "%" -f1 | tail -1 | sed "s/\W//g")" -r 12345
+
+dunstify -u low -t 2000 -i /tmp/spotify.png "$title" "$artist - $album" -h int:value:"$spotify_volume" -r 12345
 sleep 2 && dunstctl history-rm 12345
