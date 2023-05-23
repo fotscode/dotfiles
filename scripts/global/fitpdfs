@@ -1,7 +1,24 @@
 #!/bin/bash
-if [[ $# -eq 0 ]]; 
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+err(){
+	echo -e "${RED}ERROR:${NC} $1"
+}
+# make a function to show help
+function show_help {
+    echo -e "${GREEN}Usage:${NC} fitpdfs [OPTIONS] <file1> <file2> ..."
+    echo "Options:"
+    echo "-o <output_file> - output file name (default output.pdf)"
+    echo "-w <width> - width of the output pdf (default 720)"
+    echo "-h <height> - height of the output pdf (default 891)"
+    echo "-q <quality> - quality of pdf (default low) [low, medium, high]"
+    exit 0
+}
+
+if [[ $@ == "" ]]; 
 then
-    echo "Usage: $0 -f \"<file1> <file2>\" ..."
+    show_help
     exit 1
 fi
 
@@ -11,16 +28,10 @@ height=891
 flag=0
 files=""
 quality="screen"
-while getopts ":ho:f:x:y:q:" opt; do
+while getopts ":ho:w:h:q:" opt; do
     case $opt in
         h)
-            echo "Usage: $0 -f \"<file1> <file2>\" ..."
-            echo "Options:"
-            echo "-o <output_file> - output file name (default output.pdf)"
-            echo "-x <width> - width of the output pdf (default 720)"
-            echo "-y <height> - height of the output pdf (default 891)"
-            echo "-q <quality> - quality of pdf (default low) [low, medium, high]"
-            exit 0
+            show_help
             ;;
         \?)
             echo "Invalid option: -$OPTARG" >&2
@@ -29,18 +40,10 @@ while getopts ":ho:f:x:y:q:" opt; do
         o)
             output="$OPTARG"
             ;;
-        f)
-            flag=1
-            files=("$OPTARG")
-            until [[ $(eval "echo \${$OPTIND}") =~ ^-.* ]] || [ -z $(eval "echo \${$OPTIND}") ]; do
-                files+=($(eval "echo \${$OPTIND}"))
-                OPTIND=$((OPTIND + 1))
-            done
-            ;;
-        x)
+        w)
             width=$OPTARG
             ;;
-        y)
+        h)
             height=$OPTARG
             ;;
         q)
@@ -62,13 +65,43 @@ while getopts ":ho:f:x:y:q:" opt; do
             esac
             echo "Quality: $quality"
             ;;
+        : )
+            echo "Option -$OPTARG needs an argument." >&2
+            show_help
+            exit 1
+            ;;
     esac
 done
-if [[ $flag -eq 0 ]]; 
-then
-    echo "Usage: $0 -f \"<file1> <file2>\" ..."
+shift $(( OPTIND - 1 ))
+
+files=()
+for i in "$@"; do
+    # for each file, replace spaces with \
+    file=$(echo "$i" | sed "s/ /\ /g")
+    if [[ $file =~ ^-.* ]]; then
+        argv="$@"
+        extra="${argv/${files[@]}}"
+        # if extra is not empty then issue error
+        if [[ ! $extra == "" ]]; then
+            echo "$(err "Options come before files:$extra")" >&2
+            show_help
+            exit 1
+        fi
+        break
+    fi
+    if [[ ! $file =~ \.pdf$ ]]; then
+        echo "$(err "Invalid file: $file")" >&2
+        exit 1
+    fi
+
+    files+=("$file")
+done
+
+if [[ ${#files[@]} -eq 0 ]]; then
+    show_help
     exit 1
 fi
+
 gs -o "$output" -sDEVICE=pdfwrite -dFIXEDMEDIA -dPDFFitPage \
     -dDEVICEWIDTHPOINTS="$width" -dDEVICEHEIGHTPOINTS="$height" \
     -dNOPAUSE -dCompatibilityLevel=1.4 -dPDFSETTINGS=/"$quality" \
