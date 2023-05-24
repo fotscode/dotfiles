@@ -1,0 +1,33 @@
+* {
+  border-radius: 0;
+}
+
+.grid {
+  border: 1px solid #c678dd;
+  background: #282c34;
+}
+
+.label {
+  margin: 5px;
+  margin-left: 10px;
+}
+
+.rounded {
+  border-radius: 5px;
+  border: 2px solid #51afef;
+  margin: 0 10px;
+  margin-top: -10px;
+}
+
+.btn {
+  border: 0px;
+  color: #ffffff;
+  background: #282c34;
+  border-radius: 5px;
+  border: 2px solid #c678dd;
+}
+
+.fill {
+  background: #c678dd;
+  color: #282c34;
+}
