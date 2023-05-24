@@ -65,3 +65,10 @@ alias diff="colordiff"
 
 # ssh backspace
 [ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
+
+# contiker
+export CNG_PATH="/home/fots/development/contiki-ng"
+alias contiker="xhost +'local:docker@' && docker run --privileged --sysctl net.ipv6.conf.all.disable_ipv6=0 --mount type=bind,source=$CNG_PATH,destination=/home/user/contiki-ng -e DISPLAY=$DISPLAY -e LOCAL_UID=$(id -u $USER) -e LOCAL_GID=$(id -g $USER) -v /tmp/.X11-unix:/tmp/.X11-unix -v /dev/bus/usb:/dev/bus/usb -ti contiker/contiki-ng"
+
+# md2pdf, usage: md2pdf file.md -o file.pdf
+alias md2pdf="pandoc -V geometry:margin=1in -V fontsize=14pt -V papersize:a5"
