@@ -92,3 +92,7 @@ scripts/global/timer_with_notif.txt
 redshift/redshift.conf
 calibre/*
 nautilus/*
+Arduino IDE/*
+arduino-ide/*
+gdrive3/*
+__pycache__/
