@@ -104,7 +104,7 @@ def make_box(border_width=10, color=Gdk.RGBA(0.21, 0.23, 0.25, 0.98)):
 
 
 def show_empty_notification(grid_notifications):
-    boxEmpty = make_box(provider)
+    boxEmpty = make_box()
     labelEmpty = make_label(
         "There are no notifications",
         margin=10,
