@@ -4,8 +4,8 @@ from .gtk_funcs import show_empty_notification
 
 def remove_notification(x, grid_notifications, notifications):
     grid_notifications.remove(x.get_parent())
-    subprocess.getoutput("dunstctl history-rm %d" % x.text)
-    notifications.pop(x.id - 1)
+    subprocess.getoutput("dunstctl history-rm %d" % x.notif["id"]["data"])
+    notifications.remove(x.notif)
     # add empty label if grid is empty
     if len(notifications) == 0:
         show_empty_notification(grid_notifications)

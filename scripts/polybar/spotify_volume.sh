@@ -12,16 +12,8 @@ artist="$(echo "$res"| sed -n "/artist/{n;n;p}" | cut -d '"' -f2)"
 album="$(echo "$res" | sed -n "/album/{n;p}" | cut -d '"' -f2 | head -1)"
 icon="$(echo "$res"  | sed -n "/artUrl/{n;p}" | cut -d '"' -f2)"
 
-echo $icon | cut -d "/" -f5
-# checks if the image is older than 5 seconds
-seconds=0
-[[ -f /tmp/spotify.png ]] && seconds=$(exiftool /tmp/spotify.png | grep "File Modification" | cut -d ":" -f5-6 | cut -d "-" -f1 | tr ":" ".")
-current=$(date | cut -d ":" -f2-3 | cut -d " " -f1 | tr ":" ".")
-resta=$(echo "$seconds-$current" | bc)
-if [ $seconds -eq 0 ] || [ "$(echo "$resta < -0.05" | bc )" -eq 1 ] || [ "$(echo "$resta > 0" | bc )" -eq 1 ];
-then
-    curl -s "$icon" > /tmp/spotify.png
-fi
+icon_id="$(echo $icon | cut -d "/" -f5)"
+[[ -f /tmp/$icon_id.png ]] || curl -s "$icon" > "/tmp/$icon_id.png"
 
 case $1 in
 up)
@@ -34,5 +26,4 @@ down)
     ;;
 esac
 
-dunstify -u low -t 2000 -i /tmp/spotify.png "$title" "$artist - $album" -h int:value:"$spotify_volume" -r 12345
-sleep 2 && dunstctl history-rm 12345
+dunstify -u low -t 2000 -i "/tmp/$icon_id.png" "$title" "$artist - $album" -h int:value:"$spotify_volume" -r 12345 && sleep 2 && dunstctl history-rm 12345

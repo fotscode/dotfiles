@@ -80,8 +80,7 @@ for notif in notifications:
         lambda x: remove_notification(x, grid_notifications, notifications),
         size=50,
     )
-    button.text = notif["id"]["data"]
-    button.id = row - 1
+    button.notif=notif
 
     notif_info = get_time_string(notif["timestamp"]["data"])
     notif_info += "<b>%s</b>" % notif["appname"]["data"]

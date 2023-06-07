@@ -22,8 +22,7 @@ mute)
 	pamixer -t
 	if $(pamixer --get-mute); then
 	    volume=$(pamixer --get-volume)
-		dunstify -i volume-mute -a "changevolume" -t 2000 -r 12345 -u low "Muted" -h int:value:"$volume"
-        sleep 3 && dunstctl history-rm 12345
+		dunstify -i volume-mute -a "changevolume" -t 2000 -r 12345 -u low "Muted" -h int:value:"$volume" && sleep 2 && dunstctl history-rm 12345
 	else
 		send_notification up
 	fi
