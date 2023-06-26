@@ -13,5 +13,5 @@ then
     bat --style=numbers --color=always --line-range :500 "$1"
   fi
 elif [[ -d "$1" ]]; then
-  tree -L 2 "$1" 
+  tree -C -L 2 "$1" 
 fi 
