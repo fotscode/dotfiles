@@ -12,3 +12,4 @@ export PATH="$PATH:./node_modules/.bin"
 export JAVA_HOME="$(find /usr/lib/jvm -maxdepth 1 | grep openjdk | awk -F '-' '$2>count {count=$2; java_home=$0} END {print java_home}')"
 export PATH="$JAVA_HOME/bin:$PATH"
 export OPENMPI_PATH="/usr/lib64/openmpi"
+eval $(opam env) # enable opam
