@@ -1,11 +1,11 @@
 local status_ok, mason = pcall(require, "mason")
 if not status_ok then
-  return
+    return
 end
 
 local status_ok_1, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok_1 then
-  return
+    return
 end
 
 
@@ -20,19 +20,20 @@ local servers = {
     "texlab",
     "clangd",
     "arduino_language_server",
+    "ocamllsp"
 }
 
 local settings = {
-  ui = {
-    border = "rounded",
-    icons = {
-      package_installed = "◍",
-      package_pending = "◍",
-      package_uninstalled = "◍",
+    ui = {
+        border = "rounded",
+        icons = {
+            package_installed = "◍",
+            package_pending = "◍",
+            package_uninstalled = "◍",
+        },
     },
-  },
-  log_level = vim.log.levels.INFO,
-  max_concurrent_installers = 4,
+    log_level = vim.log.levels.INFO,
+    max_concurrent_installers = 4,
 }
 
 mason.setup(settings)
@@ -64,17 +65,17 @@ for _, server in pairs(servers) do
         opts = vim.tbl_deep_extend("force", pyright_opts, opts)
     end
 
-    if server=="vuels" then
+    if server == "vuels" then
         local vuels_opts = require "user.lsp.settings.vuels"
         opts = vim.tbl_deep_extend("force", vuels_opts, opts)
     end
 
-    if server=="marksman" then
+    if server == "marksman" then
         local marksman_opts = require "user.lsp.settings.marksman"
         opts = vim.tbl_deep_extend("force", marksman_opts, opts)
     end
 
-    if server=="texlab" then
+    if server == "texlab" then
         local texlab_opts = require "user.lsp.settings.texlab"
         opts = vim.tbl_deep_extend("force", texlab_opts, opts)
     end
