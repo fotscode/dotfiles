@@ -48,3 +48,6 @@ killall -HUP xbindkeys
 
 # load wacom tablet
 which xsetwacom && xsetwacom set "Wacom One by Wacom S Pen stylus" MapToOutput 1920x1080+0+0 && xsetwacom set "Wacom One by Wacom S Pen stylus" Area 0 0 15200 8550
+
+# nvm init
+/usr/share/nvm/init-nvm.sh 
