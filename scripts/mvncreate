@@ -1,0 +1,9 @@
+#!/bin/bash
+if [[ $# -ne 2 ]];
+then
+  echo "Usage: <group_id> <artifact_id>"
+  echo "group_id=package name"
+  echo "artifact_id=folder/project name"
+  exit 1
+fi
+mvn archetype:generate -DarchetypeArtifactId="maven-archetype-quickstart" -DarchetypeGroupId="org.apache.maven.archetypes" -DarchetypeVersion="1.4" -DgroupId="$1" -DartifactId="$2" -Dversion="1.0-SNAPSHOT" -q
