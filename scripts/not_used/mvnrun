@@ -4,4 +4,4 @@ then
   echo "Usage: <artifact_id> <main_class_name>"
   exit 1
 fi
-mvn compile exec:java -Dexec.mainClass="ar.edu.unlp.info.oo2.$1.$2" -q
+mvn compile exec:java -Dexec.mainClass="$1.$2" -q
