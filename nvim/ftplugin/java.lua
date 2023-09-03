@@ -44,7 +44,7 @@ local workspace_dir = WORKSPACE_PATH .. project_name
 
 -- TODO: Testing
 
-JAVA_DAP_ACTIVE = true
+JAVA_DAP_ACTIVE = false
 
 local bundles = {}
 

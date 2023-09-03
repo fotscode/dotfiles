@@ -15,7 +15,8 @@ null_ls.setup({
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
-		formatting.google_java_format.with({ extra_args={"-a"} }),
+		--formatting.google_java_format.with({ extra_args={"-a"} }),
+		formatting.astyle,
     -- diagnostics.flake8
         diagnostics.shellcheck,
 	},
