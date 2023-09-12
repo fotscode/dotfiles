@@ -1,0 +1,6 @@
+#!/bin/bash
+if [ -z "$1" ]; then
+    echo "Usage: dir2ls_colors <dircolor file>"
+    exit 1
+fi
+tr -s ' ' < "$1" | grep "^\w\|^[.]" | tail -n+2 | cut -d "#" -f1 | sed 's/[ \t]*$//' |  tr " " "=" | awk '$0 ~ /^[.]/{print "*"$0} $0 ~ /^\w/ {print}' | tr "\n" ":" | sed "s/.$//"
