@@ -34,6 +34,13 @@ vim.cmd([[
     autocmd!
     au BufNewFile,BufRead ~/.config/i3/config set filetype=i3config
   augroup end
+
+  augroup _vagrant
+    autocmd!
+    au BufRead,BufNewFile Vagrantfile set ft=ruby
+    au BufRead,BufNewFile vagrantfile set ft=ruby
+    au BufRead,BufNewFile vagrantfile* set ft=ruby
+  augroup end
   ]])
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
