@@ -72,35 +72,25 @@ while getopts ":ho:w:h:q:" opt; do
             ;;
     esac
 done
-shift $(( OPTIND - 1 ))
+#shift $(( OPTIND - 1 ))
 
-files=()
-for i in "$@"; do
-    # for each file, replace spaces with \
-    file=$(echo "$i" | sed "s/ /\ /g")
-    if [[ $file =~ ^-.* ]]; then
-        argv="$@"
-        extra="${argv/${files[@]}}"
-        # if extra is not empty then issue error
-        if [[ ! $extra == "" ]]; then
-            echo "$(err "Options come before files:$extra")" >&2
-            show_help
-            exit 1
-        fi
-        break
-    fi
-    if [[ ! $file =~ \.pdf$ ]]; then
-        echo "$(err "Invalid file: $file")" >&2
-        exit 1
-    fi
-
-    files+=("$file")
-done
-
-if [[ ${#files[@]} -eq 0 ]]; then
+if [[ $* == "" ]]; 
+then
     show_help
     exit 1
 fi
+
+shopt -s nullglob
+files=(*)
+
+# remove from files output file
+files=("${files[@]//*$output*}")
+# remove empty elements using unset
+unset 'files[-1]'
+
+for i in "${files[@]}"; do
+    echo "$i"
+done
 
 gs -o "$output" -sDEVICE=pdfwrite -dFIXEDMEDIA -dPDFFitPage \
     -dDEVICEWIDTHPOINTS="$width" -dDEVICEHEIGHTPOINTS="$height" \
