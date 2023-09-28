@@ -145,7 +145,6 @@ nvim_tree.setup({
         timeout = 500,
     },
     view = {
-        hide_root_folder = false,
         side = "left",
         number = false,
         relativenumber = false,
@@ -209,8 +208,4 @@ nvim_tree.setup({
         cmd = "trash",
         require_confirm = true,
     },
-    notify = {
-        { level = "error",   msg = notify_level("error") },
-        { level = "warning", msg = notify_level("warning") },
-    }
 })
