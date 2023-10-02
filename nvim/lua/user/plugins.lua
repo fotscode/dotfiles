@@ -171,6 +171,8 @@ return packer.startup(function(use)
         run = "cd js && npm ci",
     })
 
+    use {"microsoft/python-type-stubs"} -- better python lsp performance
+
     use {
         'chikko80/error-lens.nvim',
         requires = { 'nvim-telescope/telescope.nvim' }
