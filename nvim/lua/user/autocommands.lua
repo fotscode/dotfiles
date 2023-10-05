@@ -41,6 +41,11 @@ vim.cmd([[
     au BufRead,BufNewFile vagrantfile set ft=ruby
     au BufRead,BufNewFile vagrantfile* set ft=ruby
   augroup end
+
+  augroup _csv
+    autocmd!
+    au BufRead,BufNewFile *.csv set ft=rfc_csv
+  augroup end
   ]])
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
