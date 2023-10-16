@@ -1,0 +1,8 @@
+#!/bin/bash
+dir="$(dirname "$1")"
+cd "$dir" || exit
+latex_file="$(basename "$1")"
+
+
+docker run -v "$dir/$latex_file:/$latex_file" --rm ghcr.io/cmhughes/latexindent.pl -s -w "$latex_file"
+

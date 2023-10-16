@@ -20,7 +20,8 @@ local servers = {
     "texlab",
     "clangd",
     "arduino_language_server",
-    "ocamllsp"
+    "ocamllsp",
+    "bufls"
 }
 
 local settings = {

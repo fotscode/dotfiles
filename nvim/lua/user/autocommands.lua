@@ -46,6 +46,11 @@ vim.cmd([[
     autocmd!
     au BufRead,BufNewFile *.csv set ft=rfc_csv
   augroup end
+
+  augroup _latex
+    autocmd!
+    au BufWritePost *.tex call jobstart(['latexdockercmd.sh',expand('%:p')],{'detach':'true'})
+  augroup end
   ]])
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
