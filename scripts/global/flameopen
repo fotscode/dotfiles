@@ -1,6 +1,2 @@
 #!/bin/bash
-flameshot gui -r > /tmp/tmp_flameshot.png &&  
-if [ -s /tmp/tmp_flameshot.png ]; then
-  xdg-open /tmp/tmp_flameshot.png
-fi
-rm /tmp/tmp_flameshot.png
+flameshot gui --pin
