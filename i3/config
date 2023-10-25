@@ -243,7 +243,6 @@ mode "$mode_gaps_outer" {
 exec_always "alttab -pk Left -nk Right -d 1"
 exec "i3-msg workspace 2"
 exec "spotify-launcher"
-exec "~/.local/share/GoogleCalendar-linux-x64/GoogleCalendar"
 exec --no-startup-id "/usr/bin/thunderbird"
 exec "sleek"
 exec "redshift"
