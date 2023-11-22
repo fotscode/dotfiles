@@ -24,7 +24,7 @@ alias psmem='ps auxf | sort -nr -k 4 | head -5'
 alias pscpu='ps auxf | sort -nr -k 3 | head -5'
 
 # exa as ls
-alias ls="eza --icons"
+alias ls="eza --icons always"
 
 alias l='ls -a'
 alias ll='ls -la'
