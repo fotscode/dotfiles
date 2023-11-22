@@ -262,7 +262,8 @@ bindsym $mod+t exec "kitty btop"
 bindsym $mod+Return exec kitty
 bindsym $mod+p exec --no-startup-id "rofi -combi-modi window,drun -show combi -show-icons"
 bindsym $mod+o exec "onboard -t Nightshade"
-bindsym $mod+d exec rnote
+# excalidraw
+bindsym $mod+d exec "/opt/brave-bin/brave --profile-directory=Default --app-id=kmcnjdcipmgchfndpapkoecbidofdpbc" 
 bindsym Print exec flameshot gui
 
 # change workspace name
