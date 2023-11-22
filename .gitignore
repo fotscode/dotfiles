@@ -97,3 +97,5 @@ arduino-ide/*
 gdrive3/*
 __pycache__/
 JetBrains/*
+gh/*
+gh-copilot/*
