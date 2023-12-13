@@ -99,3 +99,5 @@ __pycache__/
 JetBrains/*
 gh/*
 gh-copilot/*
+.android/*
+chromium/*
