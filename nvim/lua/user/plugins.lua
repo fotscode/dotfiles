@@ -105,9 +105,9 @@ return packer.startup(function(use)
     use({ "kevinhwang91/nvim-bqf", ft = "qf" }) -- quickfix
     use("SmiteshP/nvim-navic")                  -- navigation
     use({
-        tag = "legacy",
         event = "LspAttach",
-        "j-hui/fidget.nvim"
+        tag = "v1.0.0",
+        "j-hui/fidget.nvim",
     }) -- fidget spinner for lsp
 
     -- Telescope
