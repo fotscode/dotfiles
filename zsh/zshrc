@@ -75,3 +75,10 @@ autoload edit-command-line; zle -N edit-command-line
 # bindkey '^e' edit-command-line
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=('status' 'load' 'ram_joined' 'time')
+
+# bun completions
+[ -s "/home/fots/.bun/_bun" ] && source "/home/fots/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

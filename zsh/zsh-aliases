@@ -4,7 +4,7 @@ alias nvimrc='nvim ~/.config/nvim/'
 alias zshrc='nvim ~/.config/zsh/'
 alias i3rc='nvim ~/.config/i3/config'
 alias i3statusrc='nvim ~/.config/i3status/config'
-alias smn="python ~/.config/scripts/smn.py"
+alias smn="~/.config/scripts/smn"
 alias weather="smn -n '4856'"
 alias clearpacman="sudo pacman -Sc"
 
