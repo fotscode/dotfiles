@@ -64,7 +64,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 })
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
-    pattern = { "typescript", "vue" },
+    pattern = { "typescript", "vue", "typescriptreact" },
     callback = function()
         vim.cmd([[
       set shiftwidth=2
