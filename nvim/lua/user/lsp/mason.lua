@@ -22,7 +22,8 @@ local servers = {
     "arduino_language_server",
     "ocamllsp",
     "bufls",
-    "gopls"
+    "gopls",
+    "astro"
 }
 
 local settings = {
@@ -90,6 +91,11 @@ for _, server in pairs(servers) do
     if server == "gopls" then
         local gopls_opts = require "user.lsp.settings.gopls"
         opts = vim.tbl_deep_extend("force", gopls_opts, opts)
+    end
+
+    if server == "astro" then
+        local astro_opts = require "user.lsp.settings.astro"
+        opts = vim.tbl_deep_extend("force", astro_opts, opts)
     end
 
     if server == "jdtls" then goto continue end

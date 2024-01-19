@@ -47,6 +47,11 @@ vim.cmd([[
     au BufRead,BufNewFile *.csv set ft=rfc_csv
   augroup end
 
+  augroup _mdx
+    autocmd!
+    au BufRead,BufNewFile *.mdx set ft=markdown.mdx
+  augroup end
+
   augroup _latex
     autocmd!
     au BufWritePost *.tex call jobstart(['latexdockercmd.sh',expand('%:p')],{'detach':'true'})
