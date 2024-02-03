@@ -244,12 +244,12 @@ exec_always "alttab -pk Left -nk Right -d 1"
 exec "i3-msg workspace 2"
 exec "spotify-launcher"
 exec --no-startup-id "/usr/bin/thunderbird"
-exec "sleek"
+exec "obsidian"
 exec "redshift"
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
 
 
-for_window [class="sleek"] move scratchpad
+for_window [class="obsidian"] move scratchpad
 for_window [class="thunderbird"] move container to workspace number 9
 for_window [class="Spotify"] move container to workspace number 8
 for_window [class="Google Calendar"] move container to workspace number 9
