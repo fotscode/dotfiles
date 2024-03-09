@@ -47,7 +47,10 @@ killall -HUP xbindkeys
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 # load wacom tablet
-which xsetwacom && xsetwacom set "Wacom One by Wacom S Pen stylus" MapToOutput 1920x1080+0+0 && xsetwacom set "Wacom One by Wacom S Pen stylus" Area 0 0 15200 8550
+# 1 - fixes stylus to first screen
+# 2 - fixes area of stylus
+# 3 - rotates the tablet 180deg
+which xsetwacom && xsetwacom set "Wacom One by Wacom S Pen stylus" MapToOutput 1920x1080+0+0 && xsetwacom set "Wacom One by Wacom S Pen stylus" Area 0 0 15200 8550 && xsetwacom set "Wacom One by Wacom S Pen stylus" Rotate half
 
 # nvm init
 /usr/share/nvm/init-nvm.sh 
