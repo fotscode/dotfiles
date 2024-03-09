@@ -106,3 +106,7 @@ go/*
 nextjs-nodejs/*
 obsidian/*
 astro/*
+.nuxt/
+.nuxtrc
+simple-requests/
+warp-terminal/
