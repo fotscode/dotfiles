@@ -76,3 +76,7 @@ alias md2pdf="pandoc -V geometry:margin=1in -V fontsize=14pt -V papersize:a5"
 
 # xclip to clipboard
 alias copy="xclip -selection clipboard"
+
+alias gitsub="git submodule foreach git pull origin develop --recurse-submodules"
+
+alias chat="docker exec -it ollama ollama run terminal-chat"
