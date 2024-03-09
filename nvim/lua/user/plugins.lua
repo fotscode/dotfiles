@@ -120,7 +120,7 @@ return packer.startup(function(use)
         run = ":TSUpdate",
     })
     use("JoosepAlviste/nvim-ts-context-commentstring")
-    use("p00f/nvim-ts-rainbow")
+    --use("p00f/nvim-ts-rainbow")
     use("windwp/nvim-ts-autotag")
     use("kylechui/nvim-surround")
 

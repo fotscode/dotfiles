@@ -14,7 +14,7 @@ local servers = {
     "tsserver",
     "jdtls",
     "pyright",
-    "vuels",
+    "volar",
     "marksman",
     "lemminx",
     "texlab",

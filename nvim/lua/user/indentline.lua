@@ -12,5 +12,7 @@ end
 
 vim.wo.colorcolumn = "99999"
 
-indent_blankline.setup({})
+indent_blankline.setup({
+    indent = { char = "▏" },
+})
 hooks.register(hooks.type.HIGHLIGHT_SETUP, hooks.builtin.scope_highlight_from_extmark)
