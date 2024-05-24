@@ -4,6 +4,7 @@ export SHELL=/bin/zsh
 export EDITOR=/bin/nvim
 HISTFILE=~/.zsh_history
 setopt appendhistory
+setopt sharehistory
 
 
 # performance boost 
@@ -21,7 +22,10 @@ unsetopt BEEP
 
 # completions
 autoload -Uz compinit
-zstyle ':completion:*' menu select
+#zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa $realpath'
 # zstyle ':completion::complete:lsof:*' menu yes select
 zmodload zsh/complist
 # compinit
@@ -49,6 +53,7 @@ zsh_add_file "zsh-prompt"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
+zsh_add_plugin "Aloxaf/fzf-tab"
 
 # Key-bindings
 bindkey -s '^o' 'op^M'
@@ -61,6 +66,7 @@ bindkey -r "^u"
 bindkey -r "^d"
 
 # FZF 
+eval "$(fzf --zsh)"
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
