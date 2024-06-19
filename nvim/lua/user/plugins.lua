@@ -173,8 +173,8 @@ return packer.startup(function(use)
 
     use {"microsoft/python-type-stubs"} -- better python lsp performance
 
-    use {
-        'chikko80/error-lens.nvim',
-        requires = { 'nvim-telescope/telescope.nvim' }
-    }
+    -- use {
+    --     'chikko80/error-lens.nvim',
+    --     requires = { 'nvim-telescope/telescope.nvim' }
+    -- }
 end)

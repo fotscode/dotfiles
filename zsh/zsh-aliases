@@ -80,3 +80,11 @@ alias copy="xclip -selection clipboard"
 alias gitsub="git submodule foreach git pull origin develop --recurse-submodules"
 
 alias chat="docker exec -it ollama ollama run terminal-chat"
+
+alias gs="git status"
+alias gl="git log"
+alias gd="git diff"
+alias gc="git commit"
+alias gp="git push"
+alias gpl="git pull"
+alias ga="git add"
