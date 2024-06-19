@@ -7,7 +7,7 @@ ZA_CACHE_DIR="${XDG_CACHE_HOME:-"$HOME/.cache/"}""/zaread/"
 ZA_CONFIG="${XDG_CONFIG_HOME:-"$HOME/.config"}"'/zaread/zareadrc'
 
 # READER with which we'll open pdf, epub and converted files
-READER="sioyek"
+READER="zathura"
 
 # here we have the execs we use to convert. if you want to use a custom exec,
 # then set it here, and go down in the script to find (and edit) the proper command

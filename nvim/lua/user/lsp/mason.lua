@@ -10,20 +10,20 @@ end
 
 
 local servers = {
-    "lua_ls",
-    "tsserver",
-    "jdtls",
-    "pyright",
-    "volar",
-    "marksman",
-    "lemminx",
-    "texlab",
-    "clangd",
-    "arduino_language_server",
-    "ocamllsp",
-    "bufls",
-    "gopls",
-    "astro"
+--    "lua_ls",
+--    "tsserver",
+--    "jdtls",
+--    "pyright",
+--    "volar",
+--    "marksman",
+--    "lemminx",
+--    "texlab",
+--    "clangd",
+--    "arduino_language_server",
+--    "ocamllsp",
+--    "bufls",
+--    "gopls",
+--    "astro"
 }
 
 local settings = {

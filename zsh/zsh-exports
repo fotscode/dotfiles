@@ -9,8 +9,7 @@ export PATH=$HOME/.local/share/go/bin:$PATH
 export GOPATH=$HOME/.local/share/go
 export PATH=$HOME/.fnm:$PATH
 export PATH="$PATH:./node_modules/.bin"
-export JAVA_HOME="$(find /usr/lib/jvm -maxdepth 1 | grep openjdk | awk -F '-' '$2>count {count=$2; java_home=$0} END {print java_home}')"
 export PATH="$JAVA_HOME/bin:$PATH"
 export OPENMPI_PATH="/usr/lib64/openmpi"
 export LS_COLORS="$($HOME/.config/scripts/dir2ls_colors $HOME/.config/ls_colors/dircolor)"
-eval $(opam env) # enable opam
+export LD_LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu:$LD_LIBRARY_PATH
