@@ -1,20 +1,32 @@
 #!/bin/bash
-# backup pictures, documents, and videos to a external drive mounted at /mnt/backupfiles
 
-# set the date
-DATE=$(date +%Y-%m-%d)
+# make date in RFC 3339 format
+DATE=$(date --iso-8601=seconds )
 
-# set the backup directory
-BACKUPDIR=/media/backupfiles
+# Define source directories
+SRC_DIRS=("$HOME/pictures" "$HOME/documents" "$HOME/videos")
 
-# set the source directory
-SOURCEDIR="pictures/ documents/ videos/"
+# Define backup directory
+BACKUP_DIR=/media/backupfiles/backups
 
-# set the backup file name
-BACKUPFILE=$BACKUPDIR/$DATE-backup.tar.gz
+# Create backup directory if it doesn't exist
+mkdir -p "$BACKUP_DIR"
 
-# set the log file
-LOGFILE=$BACKUPDIR/$DATE-backup.log
+# Function to perform backup using rsync
+backup() {
+  local SRC_DIR=$1
+  local DEST_DIR=$2
 
-# create the backup
-tar -cvpzf "$BACKUPFILE" -C "$HOME" $SOURCEDIR 2> "$LOGFILE"
+  rsync -avh --delete --exclude='.git' --exclude='node_modules' --exclude='*.tmp' "$SRC_DIR" "$DEST_DIR" >> "$BACKUP_DIR/${DATE}_backup.log" 2>&1
+}
+
+# Loop through each source directory and perform backup
+for SRC_DIR in "${SRC_DIRS[@]}"; do
+  # Extract the name of the folder (e.g., "pictures")
+  FOLDER_NAME=$(basename "$SRC_DIR")
+
+  # Perform the backup
+  backup "$SRC_DIR/" "$BACKUP_DIR/$FOLDER_NAME"
+done
+
+echo "Backup completed successfully."
