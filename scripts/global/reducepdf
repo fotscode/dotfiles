@@ -1,0 +1,7 @@
+#!/bin/sh
+
+/usr/bin/ghostscript  -o out.pdf -dNOPAUSE -dBATCH -dSAFER \
+    -sDEVICE=pdfwrite \
+    -dCompatibilityLevel=1.4 \
+    -dPDFSETTINGS=/screen \
+     "$1"

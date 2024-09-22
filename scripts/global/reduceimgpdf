@@ -1,0 +1,16 @@
+#!/bin/sh
+
+/usr/bin/ghostscript  -o out.pdf -dNOPAUSE -dBATCH -dSAFER \
+    -sDEVICE=pdfwrite \
+    -dCompatibilityLevel=1.4 \
+    -dPDFSETTINGS=/screen \
+    -dEmbedAllFonts=true \
+    -dSubsetFonts=true \
+    -dColorImageDownsampleType=/Bicubic \
+    -dColorImageResolution=72 \
+    -dGrayImageDownsampleType=/Bicubic \
+    -dGrayImageResolution=72 \
+    -dMonoImageDownsampleType=/Bicubic \
+    -dMonoImageResolution=72 \
+    -sOutputFile=out.pdf \
+     "$1"
