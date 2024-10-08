@@ -49,7 +49,7 @@ vim.cmd([[
 
   augroup _mdx
     autocmd!
-    au BufRead,BufNewFile *.mdx set ft=markdown.mdx
+    au BufRead,BufNewFile *.mdx set ft=mdx
   augroup end
 
   augroup _latex
@@ -57,6 +57,9 @@ vim.cmd([[
     au BufWritePost *.tex call jobstart(['latexdockercmd.sh',expand('%:p')],{'detach':'true'})
   augroup end
   ]])
+
+vim.treesitter.language.register("markdown", "mdx") -- the mdx filetype will use the markdown parser and queries.
+
 -- Use 'q' to quit from common plugins
 vim.api.nvim_create_autocmd({ "FileType" }, {
     pattern = { "qf", "help", "man", "lspinfo", "spectre_panel", "lir" },

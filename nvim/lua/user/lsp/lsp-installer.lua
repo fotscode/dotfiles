@@ -5,7 +5,7 @@ end
 
 local servers = {
     "lua_ls",
-    "tsserver",
+    "ts_ls",
     "jdtls",
     "pyright",
     "vuels",

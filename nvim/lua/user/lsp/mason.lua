@@ -11,11 +11,10 @@ end
 
 local servers = {
     "lua_ls",
-    "tsserver",
+    "ts_ls",
     "jdtls",
     "pyright",
     "volar",
-    "marksman",
     "lemminx",
     "texlab",
     "clangd",
