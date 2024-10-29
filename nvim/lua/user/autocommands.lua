@@ -49,7 +49,7 @@ vim.cmd([[
 
   augroup _mdx
     autocmd!
-    au BufRead,BufNewFile *.mdx set ft=mdx
+    au BufRead,BufNewFile *.mdx set ft=markdown.mdx
   augroup end
 
   augroup _latex
