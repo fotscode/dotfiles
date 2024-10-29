@@ -255,7 +255,7 @@ for_window [class="Spotify"] move container to workspace number 8
 for_window [class="Google Calendar"] move container to workspace number 9
 
 # user bindings
-bindsym $mod+f exec "brave --disable-features=HardwareMediaKeyHandling"
+bindsym $mod+f exec "brave --password-store=basic --disable-features=HardwareMediaKeyHandling"
 bindsym $mod+c exec google-chrome-stable
 bindsym $mod+e exec "~/.config/scripts/float_focus_i3.sh"
 bindsym $mod+t exec "kitty btop"
