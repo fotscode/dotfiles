@@ -19,8 +19,7 @@ local servers = {
     "texlab",
     "clangd",
     "arduino_language_server",
-    "ocamllsp",
-    "bufls",
+    "buf_ls",
     "gopls",
     "astro"
 }
