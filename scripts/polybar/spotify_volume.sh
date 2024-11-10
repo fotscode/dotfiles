@@ -1,8 +1,8 @@
 #!/bin/bash
 [[ $# -ne 1 ]] && echo "Usage: $0 (up/down)" && exit 1
-spotify_res=$(pacmd list-sink-inputs | grep Spotify -B 18)
-spotify=$(echo "$spotify_res" | grep index | tail -1 | cut -d ":" -f2 | sed 's/[[:space:]]*//g')
-spotify_volume=$(echo "$spotify_res" | grep RUNNING -A 2 | grep volume | cut -d "/" -f2 | xargs | head -c 2)
+spotify_res=$(pactl list | grep Spotify -B 28)
+spotify=$(echo "$spotify_res" | grep "Sink Input" | cut -d "#" -f2 | sed 's/[[:space:]]*//g')
+spotify_volume=$(echo "$spotify_res"  | grep Volume | cut -d / -f2 | cut -d % -f1 | sed 's/[[:space:]]*//g')
 step=5
 
 # gets the metadata
