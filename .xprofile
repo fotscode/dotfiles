@@ -13,7 +13,7 @@ xbindkeys
 
 # Monitor config
 xrandr --output HDMI-A-0 --primary --set TearFree on
-xrandr --output HDMI-A-0 --set TearFree on --auto --output DisplayPort-0 --auto --right-of HDMI-A-0 --set TearFree on
+xrandr --output HDMI-A-0 --set TearFree on --auto --output DisplayPort-1 --auto --right-of HDMI-A-0 --set TearFree on
 
 # Don't Randomly Turn off
 xset s off
