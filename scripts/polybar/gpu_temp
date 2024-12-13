@@ -1,0 +1,1 @@
+echo $(sensors | grep junction | awk '{print $2}' | cut -c 2-)
