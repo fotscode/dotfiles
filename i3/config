@@ -271,7 +271,10 @@ mode "$mode_gaps_outer" {
 # }
 
 # workspaces to monitor
-workspace $ws11 output HDMI-A-0
+workspace $ws10 output DisplayPort-1
+workspace $ws11 output DisplayPort-1
+workspace $ws12 output DisplayPort-1
+workspace $ws13 output DisplayPort-1
 
 # on startup
 exec "spotify-launcher"
@@ -283,7 +286,6 @@ exec --no-startup-id picom --config ~/.config/picom/picom.conf
 for_window [class="obsidian"] move scratchpad
 for_window [class="Spotify"] move container to workspace number $ws11
 for_window [class="thunderbird"] move container to workspace number $ws12
-for_window [class="Google Calendar"] move container to workspace number $ws13
 
 # user bindings
 bindsym $mod+f exec "brave --password-store=basic --disable-features=HardwareMediaKeyHandling"
