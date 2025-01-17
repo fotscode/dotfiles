@@ -1,0 +1,19 @@
+#!/bin/bash
+
+NM_DNS_FILE="/etc/NetworkManager/conf.d/dns-servers.conf"
+echo "== Previous DNS servers =="
+sudo cat $NM_DNS_FILE
+res=$(sudo awk '!/^#.*/ {print "#"$0} /^#.*/ {gsub(/#/,"", $0); print $0}' $NM_DNS_FILE)
+echo "== Changed DNS servers =="
+echo "$res"
+echo -en "Do you want to continue? [Y/n]: "
+read -r ok
+[[ $ok = "" ]] && ok="y"
+if [[ $ok =~ ^(y|Y).*$ ]]; then     
+    sudo cp $NM_DNS_FILE $NM_DNS_FILE.bak
+    echo "$res" | sudo tee $NM_DNS_FILE &> /dev/null
+    sudo systemctl restart NetworkManager
+    echo "DNS servers changed successfully, saved backup to $NM_DNS_FILE.bak"
+else
+    echo "DNS servers not changed"
+fi
