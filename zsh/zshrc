@@ -57,6 +57,7 @@ zsh_add_plugin "Aloxaf/fzf-tab"
 
 # Key-bindings
 bindkey -s '^o' 'op^M'
+bindkey -s '^p' 'optext^M'
 bindkey '^[[P' delete-char
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
