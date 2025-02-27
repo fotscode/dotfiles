@@ -1,6 +1,6 @@
 #!/bin/bash
 FZF_COLORS="bg:#282C34,bg+:#2e3139,hl:#707070,prompt:#61afef,fg+:#abb2bf,fg:#abb2bf,pointer:#61afef,hl+:#61afef,info:#e5c07b,border:#61afef,spinner:#c678dd"
-rg --line-number --no-heading --smart-case "${*:-}" |
+rg --ignore-file ~/.config/fd/ignore --line-number --no-heading --smart-case "${*:-}" |
   fzf --ansi \
       --color $FZF_COLORS \
       --delimiter : \
