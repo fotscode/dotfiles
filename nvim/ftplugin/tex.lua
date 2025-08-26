@@ -18,14 +18,10 @@ local opts = {
 -- call jobstart(['latexindent',expand('%:p')],{'detach':'true','on_stdout': 'lua reload_file()' })
 
 local mappings = {
-    L = {
-        name = "Latex",
-        c = { "<Cmd>call jobstart(['latexdockercmd.sh',expand('%:p')],{'detach':'true'})<CR>", "Compile" },
-        o = { "<Cmd>call jobstart(['sioyek',expand('%:p:r')..'.pdf'],{'detach':'true'})<CR>", "View pdf" },
-        f = {
-            "<Cmd>call jobstart(['latexindent',expand('%:p')],{'detach':'true'})<CR>",
-            "Format pdf" },
-    },
+    { "<leader>L", group = "Latex",                                                                nowait = true,     remap = false },
+    { "<leader>Lc", "<cmd>call jobstart(['latexmk',expand('%:p')],{'detach':'true'})<cr>",          desc = "Compile",  nowait = true, remap = false },
+    { "<leader>Lo", "<cmd>call jobstart(['sioyek',expand('%:p:r')..'.pdf'],{'detach':'true'})<cr>", desc = "View pdf", nowait = true, remap = false },
+    { "<leader>Lf", "<cmd>call jobstart(['latexindent',expand('%:p')],{'detach':'true'})<cr>",      desc = "Format pdf", nowait = true, remap = false },
 }
 
-which_key.register(mappings, opts)
+which_key.add(mappings, opts)

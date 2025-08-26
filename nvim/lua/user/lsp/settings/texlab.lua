@@ -1,17 +1,17 @@
 local util = require 'lspconfig.util'
 
-local texlab_build_status = vim.tbl_add_reverse_lookup {
-    Success = 0,
-    Error = 1,
-    Failure = 2,
-    Cancelled = 3,
+local texlab_forward_status = {
+    [0] = 'Success',
+    [1] = 'Error',
+    [2] = 'Failure',
+    [3] = 'Unconfigured',
 }
 
-local texlab_forward_status = vim.tbl_add_reverse_lookup {
-    Success = 0,
-    Error = 1,
-    Failure = 2,
-    Unconfigured = 3,
+local texlab_build_status = {
+    [0] = 'Success',
+    [1] = 'Error',
+    [2] = 'Failure',
+    [3] = 'Cancelled',
 }
 
 local function buf_build(bufnr)
@@ -21,7 +21,7 @@ local function buf_build(bufnr)
         textDocument = { uri = vim.uri_from_bufnr(bufnr) },
     }
     if texlab_client then
-        texlab_client.request('textDocument/build', params, function(err, result)
+        texlab_client:request('textDocument/build', params, function(err, result)
             if err then
                 error(tostring(err))
             end

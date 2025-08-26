@@ -41,27 +41,27 @@ packer.init({
 -- Install your plugins here
 return packer.startup(function(use)
     -- My plugins here
-    use("wbthomason/packer.nvim")      -- Have packer manage itself
-    use("nvim-lua/popup.nvim")         -- An implementation of the Popup API from vim in Neovim
-    use("nvim-lua/plenary.nvim")       -- Useful lua functions used ny lots of plugins
-    use("windwp/nvim-autopairs")       -- Autopairs, integrates with both cmp and treesitter
-    use("numToStr/Comment.nvim")       -- Easily comment stuff
-    use("folke/todo-comments.nvim")    -- todo comments
-    use("nvim-tree/nvim-web-devicons") -- icons
-    use("nvim-tree/nvim-tree.lua")     -- tree
-    use("akinsho/bufferline.nvim")     -- buffers
-    use("moll/vim-bbye")               -- close buffers without messing up
-    use("nvim-lualine/lualine.nvim")   -- bottom line w/ info
-    use("akinsho/toggleterm.nvim")     -- terms inside neovim
-    use("ahmedkhalf/project.nvim")     -- project management
-    use("lewis6991/impatient.nvim")    -- faster startup
+    use("wbthomason/packer.nvim")              -- Have packer manage itself
+    use("nvim-lua/popup.nvim")                 -- An implementation of the Popup API from vim in Neovim
+    use("nvim-lua/plenary.nvim")               -- Useful lua functions used ny lots of plugins
+    use("windwp/nvim-autopairs")               -- Autopairs, integrates with both cmp and treesitter
+    use("numToStr/Comment.nvim")               -- Easily comment stuff
+    use("folke/todo-comments.nvim")            -- todo comments
+    use("nvim-tree/nvim-web-devicons")         -- icons
+    use("nvim-tree/nvim-tree.lua")             -- tree
+    use("akinsho/bufferline.nvim")             -- buffers
+    use("moll/vim-bbye")                       -- close buffers without messing up
+    use("nvim-lualine/lualine.nvim")           -- bottom line w/ info
+    use("akinsho/toggleterm.nvim")             -- terms inside neovim
+    use("ahmedkhalf/project.nvim")             -- project management
+    use("lewis6991/impatient.nvim")            -- faster startup
     use("lukas-reineke/indent-blankline.nvim") -- indentation line
-    use("goolord/alpha-nvim")              -- dashboard
-    use("antoinemadec/FixCursorHold.nvim") -- This is needed to fix lsp doc highlight
-    use("folke/which-key.nvim")            -- menu for keybindings
-    use("nacro90/numb.nvim")               -- peek at line numbers
-    use("andymass/vim-matchup")            -- block % endblock
-    use("folke/zen-mode.nvim")             -- zen mode :ZenMode
+    use("goolord/alpha-nvim")                  -- dashboard
+    use("antoinemadec/FixCursorHold.nvim")     -- This is needed to fix lsp doc highlight
+    use("folke/which-key.nvim")                -- menu for keybindings
+    use("nacro90/numb.nvim")                   -- peek at line numbers
+    use("andymass/vim-matchup")                -- block % endblock
+    use("folke/zen-mode.nvim")                 -- zen mode :ZenMode
 
     -- Colorschemes
     -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -99,11 +99,11 @@ return packer.startup(function(use)
         run = ":MasonUpdate", -- :MasonUpdate updates registry contents
     })
     --use("tamago324/lsp-settings.nvim") -- language server settings defined in json for
-    use("ray-x/lsp_signature.nvim")             -- show function signature
-    use("jose-elias-alvarez/null-ls.nvim")      -- for formatters and linters
+    use({ event = "LspAttach", "ray-x/lsp_signature.nvim" }) -- show function signature
+    use("nvimtools/none-ls.nvim")               -- for formatters and linters
     use({ "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" })
-    use({ "kevinhwang91/nvim-bqf", ft = "qf" }) -- quickfix
-    use("SmiteshP/nvim-navic")                  -- navigation
+    use({ "kevinhwang91/nvim-bqf", ft = "qf" })          -- quickfix
+    use("SmiteshP/nvim-navic")                           -- navigation
     use({
         event = "LspAttach",
         tag = "v1.0.0",
@@ -174,7 +174,7 @@ return packer.startup(function(use)
         run = "cd js && npm ci",
     })
 
-    use {"microsoft/python-type-stubs"} -- better python lsp performance
+    use { "microsoft/python-type-stubs" } -- better python lsp performance
 
     -- use {
     --     'chikko80/error-lens.nvim',
