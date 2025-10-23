@@ -19,21 +19,25 @@
 window {
     location:       center;
     width:          480;
-    border-radius:  24px;
     transparency: "screenshot";
-    background-color:   @bg0;
+    padding: 1px;
+    border-radius:         5px;
 }
 
 mainbox {
     padding:    12px;
+    border: 1px;
+    border-color: #56B6C2ee;
+    background-color: #282C34ee;
+    border-radius:  5px;
 }
 
 inputbar {
-    background-color:   @bg1;
-    border-color:       @bg3;
+    background-color:   #282C34;
+    border-color:       #61AFEF88;
 
     border:         2px;
-    border-radius:  16px;
+    border-radius:  5px;
 
     padding:    8px 16px;
     spacing:    8px;
@@ -46,12 +50,12 @@ prompt {
 
 entry {
     placeholder:        "Search";
-    placeholder-color:  @fg3;
+    placeholder-color:  #ABB2BF;
 }
 
 message {
     margin:             12px 0 0;
-    border-radius:      16px;
+    border-radius:      5px;
     border-color:       @bg2;
     background-color:   @bg2;
 }
@@ -73,15 +77,15 @@ listview {
 element {
     padding:        8px 16px;
     spacing:        8px;
-    border-radius:  16px;
+    border-radius:  5px;
 }
 
 element normal active {
-    text-color: @bg3;
+    text-color: #61AFEF88;
 }
 
 element selected normal, element selected active {
-    background-color:   @bg3;
+    background-color:   #61AFEF88;
 }
 
 element-icon {
