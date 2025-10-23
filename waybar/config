@@ -1,0 +1,192 @@
+{
+        "mode":"dock",
+        "layer": "top",
+        "position": "top",
+        "reload_style_on_change": true,
+        "modules-left": ["hyprland/workspaces", "custom/endpoint", "hyprland/window", "custom/timertext"],
+        "modules-center": ["clock#date", "custom/left","custom/distro","custom/right", "clock#time"],
+        "modules-right": ["tray", "custom/colorpicker","cpu", "temperature","bluetooth","group/expand","custom/endpoint","custom/notification"],
+        "hyprland/workspaces": {
+            "on-click": "activate",
+            "disable-scroll": true,
+            "show-special": true,
+            "on-scroll-up": "hyprctl dispatch workspace e-1",
+            "on-scroll-down": "hyprctl dispatch workspace e+1",
+        },
+        "hyprland/window": {
+            "format": "",
+            "format-alt": "{title}"
+        },
+        "custom/notification": {
+            "tooltip": false,
+            "format": "",
+            "on-click": "swaync-client -t -sw",
+            "escape": true
+        },
+        "clock#date": {
+            "timezone": "America/Argentina/Buenos_Aires",
+            "format": "{:%A %b %d}",
+            "format-alt": "   {:%Y-%m-%d}",
+            "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+            "calendar": {
+                "mode"          : "month",
+                "weeks-pos"     : "right",
+                "format": {
+                    "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                    "today":      "<span color='#c678dd'><b><u>{}</u></b></span>"
+                }
+            },
+            "interval": 60,
+            "actions": {
+                "on-scroll-down": "shift_up",
+                "on-scroll-up": "shift_down"
+            }
+        },
+        "custom/timertext": {
+            "format": "|  {}",
+            "exec": "cat ~/.config/waybar/scripts/timer_suspend.txt",
+            "interval": 1,
+            "tooltip": false,
+            "on-click": "bash -c 'echo \"\" > ~/.config/waybar/scripts/timer_suspend.txt && killall timer_suspend.sh'",
+            "signal": 2
+        },
+        "clock#time": {
+            "timezone": "America/Argentina/Buenos_Aires",
+            "tooltip": false,
+            "format": "{:%H:%M:%S %p}",
+            "format-alt": "{:%H:%M}",
+            "interval": 1
+        },
+        "network": {
+            "format-wifi": "",
+            "format-ethernet":"",
+            "format-disconnected": "",
+            "tooltip-format-disconnected": "Error",
+            "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+            "tooltip-format-ethernet": "{ifname} 🖧 ",
+            "on-click": "kitty nmtui"
+        },
+        "bluetooth": {
+            "format-on": "󰂯",
+            "format-off": "BT-off",
+            "format-disabled": "󰂲",
+            "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+            "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+            "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
+            "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
+            "on-click-right": "blueman-manager",
+        }, 
+        "battery": {
+            "interval":30,
+            "states": {
+                "good": 95,
+                "warning": 30,
+                "critical": 20
+            },
+            "format": "{capacity}% {icon}",
+            "format-charging": "{capacity}% 󰂄",
+            "format-plugged": "{capacity}% 󰂄 ",
+            "format-alt": "{time} {icon}",
+            "format-icons": [
+                "󰁻",
+            "󰁼",
+            "󰁾",
+            "󰂀",
+            "󰂂",
+            "󰁹"
+            ],
+        },
+        "custom/pacman": {
+            "format": "󰅢 {}",
+            "interval": 30,   
+            "exec": "checkupdates | wc -l",
+            "exec-if": "exit 0",
+            "on-click": "kitty sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
+            "signal": 8,
+            "tooltip": false,
+        },
+        "custom/expand": {
+            "format": "",
+            "tooltip": false
+        },
+        "custom/endpoint":{
+            "format": "|",
+            "tooltip": false
+        },
+        "group/expand": {
+            "orientation": "horizontal",
+            "drawer": {
+                "transition-duration": 200,
+                "transition-to-left": true,
+                "click-to-reveal": true
+            },
+            "modules": ["custom/expand", "custom/reboot", "custom/shutdown", "custom/exit", "custom/suspend", "custom/sleep"],
+        },
+        "custom/reboot": {
+            "format": "",
+            "tooltip": true,
+            "tooltip-format": "Reboot",
+            "on-click": "shutdown -r now"
+        },
+        "custom/shutdown": {
+            "format": "",
+            "tooltip": true,
+            "tooltip-format": "Shutdown",
+            "on-click": "shutdown now"
+        },
+        "custom/exit": {
+            "format": "",
+            "tooltip": true,
+            "tooltip-format": "Exit",
+            "on-click": "hyprctl dispatch exit"
+        },
+        "custom/suspend": {
+            "format": "",
+            "tooltip": true,
+            "tooltip-format": "Suspend",
+            "on-click": "~/.config/waybar/scripts/lock.sh"
+        },
+        "custom/sleep": {
+            "format": "󰒲",
+            "tooltip": true,
+            "tooltip-format": "Sleep timer",
+            "on-click": "~/.config/waybar/scripts/timer_suspend.sh 7200"
+        },
+        "custom/colorpicker": {
+            "format": "{}",
+            "return-type": "json",
+            "interval": "once",
+            "exec": "~/.config/waybar/scripts/colorpicker.sh -j",
+            "on-click": "~/.config/waybar/scripts/colorpicker.sh",
+            "signal": 1
+        },
+        "cpu": {
+            "format": "{usage}% 󰻠",
+            "tooltip": true
+        },
+        "memory": {
+            "format": ""
+        },
+        "temperature": {
+            "critical-threshold": 80,
+            "format": "{temperatureC}°C "
+        },
+        "tray": {
+            "icon-size": 14,
+            "spacing": 10
+        },
+        "custom/left": {
+            "format": "",
+		    "tooltip": false
+        },
+        "custom/right": {
+            "format": "",
+		    "tooltip": false
+        },
+        "custom/distro": {
+            "format": "󰣇",
+            "tooltip": false,
+            "on-click": "kitty &" // Optional: open a terminal when clicked
+        }
+} 
+

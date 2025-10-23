@@ -1,0 +1,194 @@
+* {
+    font-size:15px;
+    font-family: "Iosevka Nerd Font Propo";
+    background: #282c34
+}
+#custom-distro {
+	background-color: #c678dd;
+}
+#custom-left, #custom-right {
+	color: #c678dd;
+}
+
+window#waybar{
+}
+
+.modules-left {
+    padding:0 5px;
+    margin-left: 10px;
+    border-radius:10px;
+    background: #373b41;
+}
+.modules-center {
+    border-radius:10px;
+    background: #373b41;
+}
+.modules-right {
+    padding:0 5px;
+    margin-right: 10px;
+    border-radius:10px;
+    background: #373b41;
+}
+tooltip {
+    background:#282c34;
+    color: #abb2bf;
+}
+#clock:hover, #custom-pacman:hover, #custom-notification:hover,#bluetooth:hover,#network:hover,#battery:hover, #cpu:hover,#memory:hover,#temperature:hover, #custom-expand:hover,#custom-reboot:hover, #custom-shutdown:hover, #custom-exit:hover, #custom-suspend:hover, #custom-sleep:hover, #window:hover {
+    transition: all .3s ease;
+    color:#c678dd;
+}
+#custom-notification {
+    padding: 0px 5px;
+    transition: all .3s ease;
+    color:#abb2bf;
+}
+#clock{
+    padding: 0px 5px;
+    color:#abb2bf;
+    transition: all .3s ease;
+}
+#clock.date {
+    border-radius: 10px 0 0 10px;
+    min-width: 120px;
+}
+#clock.time {
+    border-radius: 0 10px 10px 0;
+    min-width: 120px;
+}
+#modules-center, #clock, #custom-left, #custom-right {
+    background: #373b41;
+}
+
+#custom-distro{
+    padding: 0px 2px;
+    color:#282c34;
+}
+#custom-left {
+    padding-left: 10px;
+}
+#custom-right {
+    padding-right: 10px;
+}
+
+#custom-pacman{
+    padding: 0px 5px;
+    transition: all .3s ease;
+    color:#abb2bf;
+
+}
+#workspaces, #window, #custom-timertext {
+    padding: 0px 5px;
+    background: #373b41;
+    color: #abb2bf;
+}
+#custom-timertext {
+    color:#c678dd;
+}
+#workspaces button {
+    all:unset;
+    padding: 0px 5px;
+    transition: all .2s ease;
+}
+#workspaces *, #window *, #tray *, #tray, #custom-colorpicker, #cpu, #temperature, #bluetooth, #group-expand, #custom-expand, #custom-endpoint, #custom-notification {
+    background: #373b41;
+}
+
+#workspaces button:hover {
+    color: alpha(#c678dd,0.7);
+    border: none;
+    transition: all 1s ease;
+}
+#workspaces button.active {
+    color: #c678dd;
+    border: none;
+    border-radius: 5px;
+}
+#workspaces button.empty {
+    color:#abb2bf;
+    border: none;
+}
+#workspaces button.empty:hover {
+    border: none;
+    color:#abb2bf;
+}
+#workspaces button.empty.active {
+    color: #c678dd;
+    border: none;
+}
+#bluetooth{
+    padding: 0px 5px;
+    transition: all .3s ease;
+    color:#abb2bf;
+
+}
+#network{
+    padding: 0px 5px;
+    transition: all .3s ease;
+    color:#abb2bf;
+
+}
+#battery{
+    padding: 0px 5px;
+    transition: all .3s ease;
+    color:#abb2bf;
+
+
+}
+#battery.charging {
+    color: #26A65B;
+}
+
+#battery.warning:not(.charging) {
+    color: #ffbe61;
+}
+
+#battery.critical:not(.charging) {
+    color: #f53c3c;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#group-expand{
+    transition: all .3s ease; 
+    color:#abb2bf;
+}
+#custom-expand{
+    padding: 0px 5px;
+    color:#abb2bf;
+    text-shadow: 0px 0px 2px rgba(0, 0, 0, .7);
+    transition: all .3s ease; 
+}
+#custom-colorpicker{
+    padding: 0px 5px;
+}
+#cpu,#memory,#temperature{
+    padding: 0px 5px;
+    transition: all .3s ease; 
+    color:#abb2bf;
+
+}
+#custom-endpoint{
+    color:#abb2bf;
+}
+#custom-reboot, #custom-shutdown, #custom-exit, #custom-suspend, #custom-sleep  {
+    padding: 0px 10px;
+    color: #abb2bf;
+    background: #30343a;
+}
+
+#tray{
+    padding: 0px 5px;
+    transition: all .3s ease; 
+
+}
+#tray menu * {
+    padding: 0px 5px;
+    transition: all .3s ease; 
+}
+
+#tray menu separator {
+    padding: 0px 5px;
+    transition: all .3s ease; 
+}
