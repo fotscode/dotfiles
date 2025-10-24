@@ -5,7 +5,7 @@
         "reload_style_on_change": true,
         "modules-left": ["hyprland/workspaces", "custom/endpoint", "hyprland/window", "custom/timertext"],
         "modules-center": ["clock#date", "custom/left","custom/distro","custom/right", "clock#time"],
-        "modules-right": ["tray", "custom/colorpicker","cpu", "temperature","bluetooth","group/expand","custom/endpoint","custom/notification"],
+        "modules-right": ["custom/spotify", "tray", "custom/colorpicker","memory", "cpu", "temperature","bluetooth", "network","group/expand","custom/endpoint","custom/notification"],
         "hyprland/workspaces": {
             "on-click": "activate",
             "disable-scroll": true,
@@ -16,6 +16,17 @@
         "hyprland/window": {
             "format": "",
             "format-alt": "{title}"
+        },
+        "custom/spotify": {
+            "format": "{}",
+            "exec": "sleep 0.1; [[ $(playerctl status -p 'spotify') == 'Playing' ]] && playerctl metadata --format ' {{ artist }} - {{ title }}' --player=spotify || echo ''",
+            "on-click": "playerctl play-pause --player=spotify",
+            "on-click-right": "playerctl next --player=spotify",
+            "on-click-middle": "playerctl previous --player=spotify",
+            "on-scroll-up": "playerctl volume 0.05+ --player=spotify",
+            "on-scroll-down": "playerctl volume 0.05- --player=spotify",
+            "exec-on-event": true,
+            "interval": 2
         },
         "custom/notification": {
             "tooltip": false,
@@ -63,11 +74,12 @@
             "format-disconnected": "",
             "tooltip-format-disconnected": "Error",
             "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
-            "tooltip-format-ethernet": "{ifname} 🖧 ",
+            "tooltip-format-ethernet": "{ifname} 🖧 {ipaddr}",
             "on-click": "kitty nmtui"
         },
         "bluetooth": {
             "format-on": "󰂯",
+            "format-connected": "(󰂯)",
             "format-off": "BT-off",
             "format-disabled": "󰂲",
             "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
@@ -96,23 +108,14 @@
             "󰁹"
             ],
         },
-        "custom/pacman": {
-            "format": "󰅢 {}",
-            "interval": 30,   
-            "exec": "checkupdates | wc -l",
-            "exec-if": "exit 0",
-            "on-click": "kitty sh -c 'yay -Syu; echo Done - Press enter to exit; read'; pkill -SIGRTMIN+8 waybar",
-            "signal": 8,
-            "tooltip": false,
-        },
         "custom/expand": {
             "format": "",
             "tooltip": false
         },
         "custom/endpoint":{
             "format": "|",
-            "tooltip": false
-        },
+            "tooltip": false 
+        }, 
         "group/expand": {
             "orientation": "horizontal",
             "drawer": {
@@ -161,15 +164,18 @@
             "signal": 1
         },
         "cpu": {
-            "format": "{usage}% 󰻠",
+            "format": "󰻠",
+            "format-alt": "{usage}% 󰻠",
             "tooltip": true
         },
         "memory": {
-            "format": ""
+            "format": "",
+            "format-alt": "{used}/{total}GiB "
         },
         "temperature": {
             "critical-threshold": 80,
-            "format": "{temperatureC}°C "
+            "format": "",
+            "format-alt": "{temperatureC}°C "
         },
         "tray": {
             "icon-size": 14,

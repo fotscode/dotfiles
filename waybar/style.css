@@ -81,15 +81,19 @@ tooltip {
     background: #373b41;
     color: #abb2bf;
 }
-#custom-timertext {
+#custom-timertext, #custom-spotify {
     color:#c678dd;
+}
+#custom-spotify {
+    padding: 0px 5px;
+    transition: all .3s ease;
 }
 #workspaces button {
     all:unset;
     padding: 0px 5px;
     transition: all .2s ease;
 }
-#workspaces *, #window *, #tray *, #tray, #custom-colorpicker, #cpu, #temperature, #bluetooth, #group-expand, #custom-expand, #custom-endpoint, #custom-notification {
+#workspaces *, #window *, #tray *, #tray, #custom-colorpicker, #cpu, #memory, #temperature, #bluetooth, #network, #group-expand, #custom-expand, #custom-endpoint, #custom-notification, #custom-spotify {
     background: #373b41;
 }
 
