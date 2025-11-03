@@ -129,13 +129,13 @@
             "format": "",
             "tooltip": true,
             "tooltip-format": "Reboot",
-            "on-click": "shutdown -r now"
+            "on-click": "systemctl reboot"
         },
         "custom/shutdown": {
             "format": "",
             "tooltip": true,
             "tooltip-format": "Shutdown",
-            "on-click": "shutdown now"
+            "on-click": "systemctl poweroff"
         },
         "custom/exit": {
             "format": "",

@@ -79,11 +79,11 @@
                 },
                 {
                     "label":"",
-                    "command": "shutdown -r now"
+                    "command": "systemctl reboot"
                 },
                 {
                     "label":"",
-                    "command": "shutdown now"
+                    "command": "systemctl poweroff"
                 },
                 {
                     "label": "⌨",
