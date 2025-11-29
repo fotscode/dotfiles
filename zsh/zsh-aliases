@@ -94,3 +94,8 @@ alias gpl="git pull"
 alias ga="git add"
 alias dc="docker compose"
 alias de="docker exec"
+
+# shutdown replacement
+shutdown() {
+    systemctl poweroff
+}
