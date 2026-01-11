@@ -33,7 +33,7 @@ tooltip {
     background:#282c34;
     color: #abb2bf;
 }
-#clock:hover, #custom-pacman:hover, #custom-notification:hover,#bluetooth:hover,#network:hover,#battery:hover, #cpu:hover,#memory:hover,#temperature:hover, #custom-expand:hover,#custom-reboot:hover, #custom-shutdown:hover, #custom-exit:hover, #custom-suspend:hover, #custom-sleep:hover, #window:hover {
+#clock:hover, #custom-pacman:hover, #custom-notification:hover,#bluetooth:hover,#network:hover,#battery:hover, #cpu:hover,#memory:hover,#temperature:hover, #custom-expand:hover,#custom-reboot:hover, #custom-shutdown:hover, #custom-exit:hover, #custom-suspend:hover, #custom-sleep:hover, #window:hover, #custom-clock-time:hover {
     transition: all .3s ease;
     color:#c678dd;
 }
@@ -42,7 +42,7 @@ tooltip {
     transition: all .3s ease;
     color:#abb2bf;
 }
-#clock{
+#clock, #custom-clock-time {
     padding: 0px 5px;
     color:#abb2bf;
     transition: all .3s ease;
@@ -51,11 +51,11 @@ tooltip {
     border-radius: 10px 0 0 10px;
     min-width: 100px;
 }
-#clock.time {
+#clock.time, #custom-clock-time {
     border-radius: 0 10px 10px 0;
     min-width: 100px;
 }
-#modules-center, #clock, #custom-left, #custom-right {
+#modules-center, #clock, #custom-left, #custom-right, #custom-clock-time {
     background: #373b41;
 }
 

@@ -4,14 +4,14 @@
         "position": "top",
         "reload_style_on_change": true,
         "modules-left": ["hyprland/workspaces", "custom/endpoint", "hyprland/window", "custom/timertext"],
-        "modules-center": ["clock#date", "custom/left","custom/distro","custom/right", "clock#time"],
+        "modules-center": ["clock#date", "custom/left","custom/distro","custom/right", "custom/clock-time"],
         "modules-right": ["custom/spotify", "tray", "custom/colorpicker","memory", "cpu", "temperature","bluetooth", "network","group/expand","custom/endpoint","custom/notification"],
         "hyprland/workspaces": {
             "on-click": "activate",
             "disable-scroll": true,
             "show-special": true,
             "on-scroll-up": "hyprctl dispatch workspace e-1",
-            "on-scroll-down": "hyprctl dispatch workspace e+1",
+            "on-scroll-down": "hyprctl dispatch workspace e+1"
         },
         "hyprland/window": {
             "format": "",
@@ -68,6 +68,12 @@
             "format-alt": "{:%T%Z}",
             "interval": 1
         },
+        "custom/clock-time": {
+            "format": "{}",
+            "exec": "~/.config/waybar/scripts/clock-time.sh",
+            "return-type": "json",
+            "interval": 1
+        },
         "network": {
             "format-wifi": "",
             "format-ethernet":"",
@@ -86,7 +92,7 @@
             "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
             "tooltip-format-enumerate-connected": "{device_alias}\n{device_address}",
             "tooltip-format-enumerate-connected-battery": "{device_alias}\n{device_address}\n{device_battery_percentage}%",
-            "on-click-right": "kitty --class bluetui bluetui",
+            "on-click-right": "kitty --class bluetui bluetui"
         }, 
         "battery": {
             "interval":30,
@@ -106,7 +112,7 @@
             "󰂀",
             "󰂂",
             "󰁹"
-            ],
+            ]
         },
         "custom/expand": {
             "format": "",
@@ -123,7 +129,7 @@
                 "transition-to-left": true,
                 "click-to-reveal": true
             },
-            "modules": ["custom/expand", "custom/reboot", "custom/shutdown", "custom/exit", "custom/suspend", "custom/sleep"],
+            "modules": ["custom/expand", "custom/reboot", "custom/shutdown", "custom/exit", "custom/suspend", "custom/sleep"]
         },
         "custom/reboot": {
             "format": "",
