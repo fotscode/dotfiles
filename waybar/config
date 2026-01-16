@@ -19,14 +19,15 @@
         },
         "custom/spotify": {
             "format": "{}",
-            "exec": "sleep 0.1; [[ $(playerctl status -p 'spotify') == 'Playing' ]] && playerctl metadata --format ' {{ artist }} - {{ title }}' --player=spotify || echo ''",
+            "return-type": "json",
             "on-click": "playerctl play-pause --player=spotify",
             "on-click-right": "playerctl next --player=spotify",
             "on-click-middle": "playerctl previous --player=spotify",
             "on-scroll-up": "playerctl volume 0.05+ --player=spotify",
             "on-scroll-down": "playerctl volume 0.05- --player=spotify",
             "exec-on-event": true,
-            "interval": 2
+            "interval": 2,
+            "exec": "sleep 0.1; [[ $(playerctl status -p 'spotify') == 'Playing' ]] && echo \"{\\\"text\\\": \\\" $(playerctl metadata --format '{{ artist }} - {{ trunc(title, 20) }}' --player=spotify)\\\", \\\"tooltip\\\": \\\"$(playerctl metadata --format '{{ artist }} - {{ title }}' --player=spotify)\\\"}\" || echo '{\"text\": \"\", \"tooltip\": \"Stopped\"}'"
         },
         "custom/notification": {
             "tooltip": false,
