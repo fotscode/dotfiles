@@ -87,7 +87,7 @@
                 },
                 {
                     "label": "⌨",
-                    "command": "kill -34 $(ps -C wvkbd-mobintl)"
+                    "command": "kill -34 $(ps -C wvkbd-deskintl)"
                 },
                 {
                     "label": "",
